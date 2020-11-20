@@ -70,7 +70,7 @@ cat file.txt
 ### Step 3 how to package your image for sharing
 If you would like to submit your docker image containing your Python application to a challange then two common ways are
 
-####3.1 Compress the image and upload it to cloud drive
+#### 3.1 Compress the image and upload it to cloud drive
 ```
 # You dont need to be in scikit-surgerydocker directory. 
 # The following command will work from any where
