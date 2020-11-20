@@ -25,6 +25,11 @@ Now before containerization of your package, first you need to know about few im
 
 ### Create a Docker image
 To create a docker image, you will need a file `Dockerfile`. It contains the specifications e.g. what Python version you want to used etc.
+The directory structure should be like this 
+
+![Directory Structure](./images/directory-structure.png)
+
+
 Run the following command to create the image by the name `my-project`
 ```
 cd scikit-surgerydocker
