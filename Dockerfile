@@ -7,3 +7,6 @@ COPY . /project
 # Make /project directory in the image and cd into it when it runs as container
 WORKDIR /project
 
+# To run the application when the container is created
+ENTRYPOINT ["python", "app.py"]
+
