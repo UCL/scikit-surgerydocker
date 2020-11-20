@@ -8,5 +8,5 @@ COPY app.py /project
 WORKDIR /project
 
 # To run the application when the container is created
-ENTRYPOINT ["python", "app.py"]
+ENTRYPOINT ["python3", "app.py"]
 
