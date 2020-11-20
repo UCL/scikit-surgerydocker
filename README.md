@@ -1,5 +1,5 @@
 # scikit-surgerydocker
-This repo describes with a simple example how to use docker to containerise your project/algorithm 
+This repo describes with a simple example how to use docker to containerise your project/algorithm. 
 
 ## Step 1: Running without Docker
 
@@ -13,6 +13,10 @@ cd scikit-surgerydocker
 python app.py
 ```
 On execution it will add a new text file to the output folder. 
+```
+cd scikit-surgerydocker/output
+cat file.txt
+```
 
 
 ## Step 2: Containerise this application
@@ -24,7 +28,7 @@ Now before containerization of your package, first you need to know about few im
 `Docker Engine:` This is the docker software that you must INSTALL and ENABLE/RUN on your machine to run any docker command.
 
 ### Create a Docker image
-To create a docker image, you will need a file `Dockerfile`. It contains the specifications e.g. what Python version you want to used etc.
+To create a docker image, you will need a file called `Dockerfile`. It contains the specifications e.g. what Python version you want to run your python application with.
 The directory structure should be like this 
 
 ![Directory Structure](./images/directory-structure.png)
@@ -52,28 +56,32 @@ docker run \
 ```
 In the above command,      
 `my-project` is the image name.
-`-v "$PWD/input:/project/input"` This will mount the `scikit-surgerydocker/input` directory to `/project/input` directory in the container to make the input file availabe to our python `app.py` when run in the container.
-`-v "$PWD/output:/project/output"` This will mount the `scikit-surgerydocker/output` directory to `/project/output` directory in the container. So when the app.py application write to `/project/output` in the container, we will automatically get it on docker host in `scikit-surgerydocker/output`
+`-v "$PWD/input:/project/input"` This parameter will mount the `scikit-surgerydocker/input` directory from docker host to `/project/input` directory in the container to make the input file availabe to our python `app.py` when executed in the container.      
+`-v "$PWD/output:/project/output"` This will mount the `scikit-surgerydocker/output` directory from docker host to `/project/output` directory in the container. So when the `app.py` application on execution write to `/project/output` in the container, we will automatically get it on docker host in `scikit-surgerydocker/output` because of the mount.
 
 ### Checking the output
-To verify the processing performed in the container after executing the above command. On docker host
+To verify the processing performed in the container after executing the above run command. On docker host
 ```
 cd scikit-surgerydocker
 cd output
 cat file.txt
 ```
 
-### Finally how to package your image for sharing
+### Step 3 how to package your image for sharing
 If you would like to submit your docker image containing your Python application to a challange then two common ways are
 
-#### Compress the image and upload it to cloud drive
+####3.1 Compress the image and upload it to cloud drive
 ```
-# You dont need to be in scikit-surgerydocker directory. It will work from any where
+# You dont need to be in scikit-surgerydocker directory. 
+# The following command will work from any where
+
 docker save my-project:team1 > my-project-team1.tar
 ```
 This command will create the tar file of the image in the current directory by the name `my-project-team1.tar`.   
 
-Now you can upload this tar file to the cloud drive and you can share it with any one you want.
+Now you can upload this tar file to the cloud drive (Google drive, Drop box, One drive etc) and you can share it with any one you want.
+
+#### 3.2 Upload it docker hub
 
 
 
