@@ -12,7 +12,7 @@ To run the python code
 cd scikit-surgerydocker
 python app.py
 ```
-On execution it will add a new text file to the output folder. 
+On execution the python program will (1) read the text file from provided input directory, (2) append more lines to the existing text and (3) store the whole text in a newly created file in output folder provided in the project. 
 ```
 cd scikit-surgerydocker/output
 cat file.txt
