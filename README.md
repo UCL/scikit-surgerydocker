@@ -1,5 +1,5 @@
 # scikit-surgerydocker
-This repo describes with a simple example how to use docker to containerise your project/algorithm. 
+This repo describes with a simple example how to use docker to containerise your project/algorithm. Another relate project scikit-surgerychallange could be used to host an algorithm challange after containerizing the project/algorithm according to this repository.  
 
 ## Step 1: Running without Docker
 
