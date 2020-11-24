@@ -79,7 +79,7 @@ cd output
 cat outoputfile.txt
 ```
 
-### Step 3 how to package your image for sharing
+### Step 3: how to package your image for sharing
 If you would like to submit your docker image containing your Python application to a challange then this can be achieved in two common ways:
 
 #### 3.1 Compress the image and upload it to cloud drive
