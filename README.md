@@ -46,9 +46,10 @@ This command will show all the docker images you have on your docker host includ
 ```
 docker images
 ```
+The newly created `my-project` image will have the Python version you specified in `Dockerfile` and the dependencies installed (if any) and finally the source code.
 
 ### Running the created image
-After you have containerize your python application, you would like to run it :)
+After you have containerize your python application, you would like to run it :) The following command will create a new `container` from image `my-project`. 
 ```
 cd scikit-surgerydocker
 docker run \
@@ -56,30 +57,40 @@ docker run \
     -v "$PWD/output:/project/output" 
     my-project
 ```
+
 In the above command,      
 `my-project` is the image name.     
 `-v "$PWD/input:/project/input"` This parameter will mount the `scikit-surgerydocker/input` directory from docker host to `/project/input` directory in the container to make the input file availabe to our python `app.py` when executed in the container.      
 `-v "$PWD/output:/project/output"` This will mount the `scikit-surgerydocker/output` directory from docker host to `/project/output` directory in the container. So when the `app.py` application on execution write to `/project/output` in the container, we will automatically get it on docker host in `scikit-surgerydocker/output` because of the mount.
+
+### Verifying the creation of new container
+You can verify the newly created container by running the following command on docker host.
+```
+docker ps -a
+```
+Check the status column and you will see that the status say `Exited`. It is because that the docker container exit after performing its job. In our case, its job was to read text from input file and append text with it and write to output file.
+
 
 ### Checking the output
 To verify the processing performed in the container after executing the above run command. On docker host
 ```
 cd scikit-surgerydocker
 cd output
-cat file.txt
+cat outoputfile.txt
 ```
 
 ### Step 3 how to package your image for sharing
-If you would like to submit your docker image containing your Python application to a challange then two common ways are
+If you would like to submit your docker image containing your Python application to a challange then this can be achieved in two common ways:
 
 #### 3.1 Compress the image and upload it to cloud drive
+This following command will create the compressed `tar` file of the image in the current directory by the name `my-project-team1.tar`.   
+
 ```
-# You dont need to be in scikit-surgerydocker directory. 
-# The following command will work from any where
+# You dont need to be in scikit-surgerydocker directory to do this. 
+# The following command will work from any where in docker host
 
 docker save my-project:team1 > my-project-team1.tar
 ```
-This command will create the tar file of the image in the current directory by the name `my-project-team1.tar`.   
 
 Now you can upload this tar file to the cloud drive (Google drive, Drop box, One drive etc) and you can share it with any one you want.
 
