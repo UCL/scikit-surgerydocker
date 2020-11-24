@@ -1,21 +1,21 @@
 # scikit-surgerydocker
-This repo describes with a simple example how to use docker to containerise your project/algorithm. Another relate project scikit-surgerychallange could be used to host an algorithm challange after containerizing the project/algorithm according to this repository.  
+This repo describes with a simple example how to use docker to containerize your project/algorithm. Another related project [scikit-surgerychallange](https://github.com/UCL/scikit-surgerychallenge) could be used to host an algorithm challange after containerizing the project/algorithm according to this repository.  
 
-## Step 1: Running without Docker
+## Step 1: Running the project before dockerization
 
 Clone the repository
 ```
 git clone git@github.com:UCL/scikit-surgerydocker.git
 ```
-To run the python code
+To run the python application directly
 ```
 cd scikit-surgerydocker
-python app.py
+python3 app.py
 ```
-On execution the python program will (1) read the text file from provided input directory, (2) append more lines to the existing text and (3) store the whole text in a newly created file in output folder provided in the project. 
+On execution the python program will (1) read the text file `inputfile.txt` from provided `scikit-surgerydocker/input` directory, (2) append more lines to the existing text and (3) store the whole text in a newly created file `outputfile.txt` in output directory provided in the project. 
 ```
 cd scikit-surgerydocker/output
-cat file.txt
+cat outputfile.txt
 ```
 
 
