@@ -12,7 +12,8 @@ To run the python application directly
 cd scikit-surgerydocker
 python3 app.py
 ```
-On execution the python program will (1) read the text file `inputfile.txt` from provided `scikit-surgerydocker/input` directory, (2) append more lines to the existing text and (3) store the whole text in a newly created file `outputfile.txt` in output directory provided in the project. 
+On execution the python program will (1) read the text file `inputfile.txt` from provided `scikit-surgerydocker/input` directory, (2) append more lines to the existing text and (3) store the whole text in a newly created file `outputfile.txt` in `scikit-surgerydocker/output` directory provided in the project. You can check the `outputfile.txt`
+
 ```
 cd scikit-surgerydocker/output
 cat outputfile.txt
@@ -22,25 +23,26 @@ cat outputfile.txt
 ## Step 2: Containerise this application
 
 Now before containerization of your package, first you need to know about few import terms.    
-`docker host:` This is the machine on which docker is installed. E.g. in my case my mac     
-`docker image:` The image will have everything defined that we want in out container. Just like Class in Object Oriented Programming.
-`guest machine / docker container:` This is the container which will be created from docker image. Just like Object/Instance of a class in Object Oriented Programming.
-`Docker Engine:` This is the docker software that you must INSTALL and ENABLE/RUN on your machine to run any docker command.
+`docker host:` The term refers to the machine on which docker is installed. E.g. in my case my Mac machine is my docker host.    
+`docker image:` The term docker image have everything defined which we want in out container. It is just like a Class in Object Oriented Programming which defines what properties and behaviours an object of the class will have.
+`guest machine / docker container:` This is the container which is created from the docker image. It is just like a Object in Object Oriented Programming which contains all the properties and behaviours that are defined in a class.
+`Docker Engine:` This is the docker software that you must INSTALL and ENABLE/RUN on your `docker host` to run any docker command. You can install `Docker Engine` by following this [link](https://docs.docker.com/desktop/).
 
 ### Create a Docker image
-To create a docker image, you will need a file called `Dockerfile`. It contains the specifications e.g. what Python version you want to run your python application with.
-The directory structure should be like this 
+To create a docker image, you will need a file called `Dockerfile`. It contains the specifications e.g. What Python version you want to run your python application with etc. Please read the `Dockerfile` in the repo for further information.
+
+The directory structure after the cloning the project: 
 
 ![Directory Structure](./images/directory-structure.png)
 
-
-Run the following command to create the image by the name `my-project`
+Run the following command to create the image by the name `my-project`. You can your image any thing you want.   
+**Note:** The following command will only work if you are in the same directory where the `Dockerfile` is stored. In our case `Dockerfile` is in the root directory of the repo.
 ```
 cd scikit-surgerydocker
 docker build . -t my-project
 ```
 Run the following command to check that your docker image is created.
-This command will show all the docker images you have on your docker host.
+This command will show all the docker images you have on your docker host including the newly created `my-project` Docker image.
 ```
 docker images
 ```
