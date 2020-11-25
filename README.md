@@ -36,7 +36,7 @@ The directory structure after the cloning the project:
 ![Directory Structure](./images/directory-structure.png)
 
 Run the following command to create the image by the name `my-project`. You can your image any thing you want.   
-**Note:** The following command will only work if you are in the same directory where the `Dockerfile` is stored. In our case `Dockerfile` is in the root directory of the repo.
+**Note:** The following command will only work if you are in the same directory where the `Dockerfile` is saved. In our case `Dockerfile` is in the root directory of the repo.
 ```
 cd scikit-surgerydocker
 docker build . -t my-project
