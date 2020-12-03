@@ -31,7 +31,7 @@ Now before containerization of your package, first you need to know about few im
 ### Create a Docker image
 To create a docker image, you will need a file called `Dockerfile`. It contains the specifications e.g. What Python version you want to run your python application with etc. Please read the `Dockerfile` in the repo for further information.
 
-The directory structure after the cloning the project: 
+The directory structure after cloning the project: 
 
 <!-- ![Directory Structure](./images/directory-structure.png) -->
 ```bash
