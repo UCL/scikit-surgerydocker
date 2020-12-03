@@ -1,5 +1,5 @@
 # scikit-surgerydocker
-This repo describes with a simple example how to use docker to containerize your project/algorithm. It also explains how you can upload your newly created docker image to a cloud repository. Another related project [scikit-surgerychallange](https://github.com/UCL/scikit-surgerychallenge) could be used to host an algorithm challange after containerizing the project/algorithm according to this repository.  
+This repo describes with a simple example how to use docker to containerize your project/algorithm. It also explains how you can upload your newly created docker image to a cloud repository. Another related project [scikit-surgerychallange](https://github.com/UCL/scikit-surgerychallenge) could be used to download the docker image from the cloud repository and run it on another dataset for finding efficiency of your containarized algorithm. The scikit-surgerychallange repository can be used to facilitate in hosting docker challanges.  
 
 ## Step 1: Running the project before dockerization
 
