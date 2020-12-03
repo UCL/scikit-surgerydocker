@@ -33,8 +33,17 @@ To create a docker image, you will need a file called `Dockerfile`. It contains 
 
 The directory structure after the cloning the project: 
 
-![Directory Structure](./images/directory-structure.png)
-
+<!-- ![Directory Structure](./images/directory-structure.png) -->
+```bash
+scikit-surgerydocker
+├── output
+├── Dockerfile
+├── input
+│   └── inputfile.txt
+├── CONTRIBUTING.md
+├── app.py
+└── README.md   
+```
 Run the following command to create the image by the name `my-project`. You can your image any thing you want.   
 **Note:** The following command will only work if you are in the same directory where the `Dockerfile` is saved. In our case `Dockerfile` is in the root directory of the repo.
 ```
