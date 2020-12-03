@@ -11,3 +11,4 @@ def main():
 
 if __name__ == '__main__':
    main()
+   print('A new file is created successfully in ./output directory')
