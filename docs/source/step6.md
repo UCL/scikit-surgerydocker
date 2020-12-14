@@ -1,7 +1,7 @@
-### Step 3: how to package your image for sharing
+# How to package your image for sharing
 If you would like to submit your docker image containing your Python application to a challange then this can be achieved in two common ways:
 
-#### 3.1 Compress the image and upload it to cloud drive
+## Compress the image and upload it to cloud drive
 This following command will create the compressed `tar` file of the image in the current directory by the name `my-project-team1.tar`.   
 
 ```
@@ -13,7 +13,7 @@ docker save my-project:team1 > my-project-team1.tar
 
 Now you can upload this tar file to the cloud drive (Google drive, Drop box, One drive etc) and you can share it with any one you want.
 
-#### 3.2 Upload it docker hub
+## Upload it docker hub
 One of the docker register where you can upload your created image `my-project` is [docker hub](https://hub.docker.com/). 
 1. Create a free account in docker hub.
 2. Login to docker hub account online.
@@ -29,10 +29,10 @@ docker login --username=yourgithubusername --email=youremail@company.com
     1. To tag the image, first you need to find the image ID.
     2. After finding the ID you can tag the image
 ```
-# 1. To find the ID of your image run command
+# To find the ID of your image run command
 docker images
 
-# 2. To tag the image with your docker hub username
+# To tag the image with your docker hub username
 docker tag <image id found in step 1> yourgithubusername/my-project:team1
 ```
 6. Now you can upload the tagged image to docker hub. It will take time in uploading depending on the size of the image.
