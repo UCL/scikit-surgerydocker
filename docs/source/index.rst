@@ -10,6 +10,9 @@ Welcome to scikit-surgerydocker's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   step1
+   step2
+
 
 
 Indices and tables
