@@ -5,7 +5,7 @@ FROM python:3.6
 WORKDIR /project
 
 # COPY everything from project directory in repo to /project directory in the docker image
-COPY project/ .
+COPY ./project/ ./
 
 # To use Python version 3 for execution
 ENTRYPOINT ["python3"]
