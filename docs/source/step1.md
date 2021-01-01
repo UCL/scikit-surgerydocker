@@ -1,6 +1,6 @@
 # Program execution without docker
 
-First clone the project by the command
+First step is to clone the repository using the following command
 ```
 git clone git@github.com:UCL/scikit-surgerydocker.git
 ```
