@@ -1,16 +1,20 @@
 # Program execution without docker
 
-Clone the repository
+First clone the project by the command
 ```
 git clone git@github.com:UCL/scikit-surgerydocker.git
 ```
 To run the python application directly
 ```
-cd scikit-surgerydocker
+cd scikit-surgerydocker/project
 python3 app.py
 ```
-On execution the python program will (1) read the text file `inputfile.txt` from provided `scikit-surgerydocker/input` directory, (2) append more lines to the existing text and (3) store the whole text in a newly created file `outputfile.txt` in `scikit-surgerydocker/output` directory provided in the project. You can check the `outputfile.txt` after executing `app.py`.
+On execution the python program will; 
+1. Read the text file `inputfile.txt` from provided `scikit-surgerydocker/project/input` directory
+2. Append more lines to the existing text
+3. Store the whole text in a newly created file `outputfile.txt` in `scikit-surgerydocker/project/output` directory provided in the project. 
 
+You can check the `outputfile.txt` after executing `app.py`.
 ```
 cd ./output
 cat outputfile.txt
