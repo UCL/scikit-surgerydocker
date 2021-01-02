@@ -67,4 +67,4 @@ source_suffix = {
     '.md': 'markdown',
 }
 
-master_doc = 'contents'
+# master_doc = 'contents'
