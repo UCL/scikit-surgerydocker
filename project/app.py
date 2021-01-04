@@ -22,7 +22,7 @@ def write_file(file_path, file_name):
       with open(full_path, 'w+') as output_file:
          output_file.write(contents)
          for item in range(0,5):
-            output_file.write('\nAppended line by write_file function.')
+            output_file.write('\nAppended line {} by write_file function.'.format(item))
 
       print('A new file is created successfully in ./output directory')
 

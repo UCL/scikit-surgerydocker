@@ -1,1 +1,5 @@
-This is the data from the input file.
+Sample line 1 to be read by read_file function.
+Sample line 2 to be read by read_file function.
+Sample line 3 to be read by read_file function.
+Sample line 4 to be read by read_file function.
+Sample line 5 to be read by read_file function.
