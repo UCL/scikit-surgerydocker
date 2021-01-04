@@ -1,7 +1,0 @@
-This is the data from the input file.
-
-Text is copied from input/file.txt and                pasted to a new file output/file.txt along with these 5 new lines.
-Text is copied from input/file.txt and                pasted to a new file output/file.txt along with these 5 new lines.
-Text is copied from input/file.txt and                pasted to a new file output/file.txt along with these 5 new lines.
-Text is copied from input/file.txt and                pasted to a new file output/file.txt along with these 5 new lines.
-Text is copied from input/file.txt and                pasted to a new file output/file.txt along with these 5 new lines.

@@ -2,5 +2,5 @@ docs/build/
 env*
 .vscode/
 __pycache__
-outputfile.txt
+output_file.txt
 *.pyc
