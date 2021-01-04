@@ -5,18 +5,46 @@ text file and an output folder is included in the repo"""
 
 
 def read_file(file_path, file_name):
+   """Read data from a text file stored in the input directory
+
+   Args:
+      file_path (str, optional): The path containing the file to read.
+      file_name (str, optional): The name of the file to be read.
+
+   Returns:
+      data (str) data read from the file.
+   
+   Raises:
+      IOError: An exception thrown if ./input/inputfile.txt not found.
+   """
    
    full_path = file_path + file_name
    try:
       with open(full_path, 'r') as input_file:
-         return input_file.read()
+         data = input_file.read()
+         return data
    except IOError:
-      print('An error occurred accessing the input/inputfile.txt')
+      print('An error occurred accessing the input/input_file.txt')
+   except Exception as e:
+      print('An exception is thrown when reading the input file.', e)
    
 
 
 
-def write_file(file_path, file_name):
+def write_file(contents, file_path, file_name):
+   """Write data to a text file stored in the output directory.
+
+   Args:
+      contents (str): The text to write to output file.
+      file_path (str, optional): The path containing the file to read.
+      file_name (str, optional): The name of the file to be read.
+
+   Returns:
+      None
+   
+   Raises:
+      When the program fail to create and write to text file.
+   """
    full_path = file_path + file_name
    try:
       with open(full_path, 'w+') as output_file:
@@ -31,6 +59,5 @@ def write_file(file_path, file_name):
 
 
 if __name__ == '__main__':
-   contents = None
    contents = read_file(file_path='./input/', file_name='input_file.txt')
-   write_file(file_path='./output/', file_name='output_file.txt')
+   write_file(contents, file_path='./output/', file_name='output_file.txt')
