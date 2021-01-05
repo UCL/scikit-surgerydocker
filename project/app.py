@@ -24,9 +24,11 @@ def read_file(file_path, file_name):
          data = input_file.read()
          return data
    except IOError:
-      print('An error occurred accessing the input/input_file.txt')
+      print('An error occurred accessing the', full_path)
+      raise
    except Exception as e:
       print('An exception is thrown when reading the input file.', e)
+      raise
    
 
 
@@ -52,10 +54,15 @@ def write_file(contents, file_path, file_name):
          for item in range(0,5):
             output_file.write('\nAppended line {} by write_file function.'.format(item))
 
-      print('A new file is created successfully in ./output directory')
+      print('A new file is created successfully in', full_path)
 
-   except:
+   except FileNotFoundError:
+      print('The file is not found to write data to at', full_path)
+      raise
+   
+   except Exception as e:
       print('Output file cannot be written')
+      raise
 
 
 if __name__ == '__main__':
