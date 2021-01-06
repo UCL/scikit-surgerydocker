@@ -3,7 +3,8 @@
 To create a docker image, you will need a file called `Dockerfile`. It contains the specifications required for your application e.g. What Python version you want to run your python application and what packages your python program is dependant on. Please read the `Dockerfile` in the repo for further information.
 
 Run the following command to create a docker image by the name `my-project`.   
-**Note:** The following command will only work if you are in the same directory where the `Dockerfile` is saved. In our case `Dockerfile` is in the `scikits-surgerydocker' directory of the repo.
+**Note:** The following command will only work if you are in the same directory where the `Dockerfile` is saved. In our case `Dockerfile` is in the `scikit-surgerydocker' directory of the repo.   
+Secondly, make sure that docker application is running when running the following command.
 ```
 cd scikit-surgerydocker
 docker build -t my-project .
