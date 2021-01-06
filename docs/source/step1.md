@@ -10,12 +10,12 @@ cd scikit-surgerydocker/project
 python3 app.py
 ```
 On execution the python program will; 
-1. Read the text file `inputfile.txt` from provided `scikit-surgerydocker/project/input` directory
+1. Read the text file `input_file.txt` from provided `scikit-surgerydocker/project/input` directory
 2. Append more lines to the existing text
-3. Store the whole text in a newly created file `outputfile.txt` in `scikit-surgerydocker/project/output` directory provided in the project. 
+3. Store the whole text in a newly created file `output_file.txt` in `scikit-surgerydocker/project/output` directory provided in the project. 
 
-You can check the `outputfile.txt` after executing `app.py`.
+You can check the `output_file.txt` after executing `app.py`.
 ```
 cd ./output
-cat outputfile.txt
+cat output_file.txt
 ```
