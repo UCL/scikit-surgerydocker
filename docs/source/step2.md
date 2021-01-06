@@ -4,7 +4,7 @@ To create a docker image, you will need a file called `Dockerfile`. It contains 
 
 Run the following command to create a docker image by the name `my-project`.   
 **Note:** The following command will only work if you are in the same directory where the `Dockerfile` is saved. In our case `Dockerfile` is in the `scikit-surgerydocker' directory of the repo.   
-Secondly, make sure that docker application is running when running the following command.
+**Note:** Please also make sure that the docker engine is running before executing the following command.
 ```
 cd scikit-surgerydocker
 docker build -t my-project .
@@ -14,7 +14,6 @@ docker build -t my-project .
 Run the following command to check that your docker image is created.
 This command will show all the docker images you have on your docker host including the newly created `my-project` Docker image.
 
-**Note:** Please make sure that the docker engine is running before executing the following command.
 ```
 docker images
 ```
