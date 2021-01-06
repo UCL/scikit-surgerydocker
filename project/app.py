@@ -15,7 +15,7 @@ def read_file(file_path, file_name):
       data (str) data read from the file.
    
    Raises:
-      IOError: An exception thrown if ./input/inputfile.txt not found.
+      IOError: An exception thrown if ./input/input_file.txt not found.
    """
    
    full_path = file_path + file_name
