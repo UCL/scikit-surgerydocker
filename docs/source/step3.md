@@ -2,11 +2,8 @@
 
 After you have containerize your python application, you would like to run it :) The following command will create a new `container` from image `my-project`. 
 ```
-cd scikit-surgerydocker
-docker run \
-    -v "$PWD/input:/project/input" 
-    -v "$PWD/output:/project/output" 
-    my-project
+cd scikit-surgerydocker/project/
+docker run -v "$PWD/input:/project/input" -v "$PWD/output:/project/output" my-project
 ```
 
 In the above command,      
