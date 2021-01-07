@@ -15,7 +15,7 @@ def read_file(file_path, file_name):
       data (str) data read from the file.
    
    Raises:
-      IOError: An exception thrown if ./input/input_file.txt not found.
+      Exception: An exception is thrown if something goes wrong.
    """
    
    full_path = file_path + file_name
@@ -23,9 +23,6 @@ def read_file(file_path, file_name):
       with open(full_path, 'r') as input_file:
          data = input_file.read()
          return data
-   except IOError:
-      print('An error occurred accessing the', full_path)
-      raise
    except Exception as e:
       print('An exception is thrown when reading the input file.', e)
       raise
@@ -45,7 +42,7 @@ def write_file(contents, file_path, file_name):
       None
    
    Raises:
-      When the program fail to create and write to text file.
+      Exception: An exception is thrown if something goes wrong..
    """
    full_path = file_path + file_name
    try:
@@ -56,12 +53,8 @@ def write_file(contents, file_path, file_name):
 
       print('A new file is created successfully in', full_path)
 
-   except FileNotFoundError:
-      print('The file is not found to write data to at', full_path)
-      raise
-   
    except Exception as e:
-      print('Output file cannot be written')
+      print('Output file cannot be written', e)
       raise
 
 

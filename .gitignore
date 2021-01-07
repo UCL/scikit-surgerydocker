@@ -5,3 +5,4 @@ env*
 __pycache__
 output_file.txt
 *.pyc
+tests/.coverage
