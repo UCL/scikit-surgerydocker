@@ -2,7 +2,7 @@ name: main
 on:
   push:
     branches:
-      - 15-add-code-coverage
+      - main
 jobs:
   run:
     runs-on: ubuntu-latest
