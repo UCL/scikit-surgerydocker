@@ -20,11 +20,12 @@ jobs:
         pip install pytest-cov
         cd tests
         python3 -m pytest --cov-report xml --cov project
+        mv coverage.xml ../
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
-        files: ./tests/coverage.xml
+        files: ./coverage.xml
         directory: ./coverage/reports/
         flags: unittests
         env_vars: OS,PYTHON
