@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.com/UCL/scikit-surgerydocker.svg?branch=main)](https://travis-ci.com/UCL/scikit-surgerydocker) [![Documentation Status](https://readthedocs.org/projects/scikit-surgerydocker/badge/?version=latest)](https://scikit-surgerydocker.readthedocs.io/en/latest/?badge=latest)
-[![codecov](https://codecov.io/gh/UCL/scikit-surgerydocker/branch/main/graph/badge.svg?token=BGIXM5LW3C)](https://codecov.io/gh/UCL/scikit-surgerydocker)
 
 # scikit-surgerydocker
 This repo shows how to containerize (create docker image) of your project/algorithm. If your project/algorithm takes input data, process it and produce results (as shown in the directory tree below) then you can use scikit-surgerydocker to containerise your project/algorithm for easy sharing and reproducability. 
