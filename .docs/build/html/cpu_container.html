@@ -90,9 +90,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#step-3-copy-the-input-data">Step 3: Copy the input data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#step-4-containerize-the-application">Step 4: Containerize the application</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#step-5-program-execution-from-image">Step 5: Program execution from image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-6-verifying-container">Step 6: Verifying container</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#step-6-verifying-container">Step 6: Verifying container</a></li>
 <li class="toctree-l1"><a class="reference internal" href="share_container.html">How to package your image for sharing</a></li>
 </ul>
 
@@ -249,9 +249,8 @@ In the example we know that the input data is stored in <code class="docutils li
 <p>In the above command,<br /><code class="docutils literal notranslate"><span class="pre">my-project</span></code> is the docker image name.<br /><code class="docutils literal notranslate"><span class="pre">-v</span> <span class="pre">&quot;$PWD/input_data:/project/input_data&quot;</span></code> This parameter will mount the <code class="docutils literal notranslate"><span class="pre">scikit-surgerydocker/input_data</span></code> directory from docker host to <code class="docutils literal notranslate"><span class="pre">/project/input_data</span></code> directory in the container to make the input file availabe to our python <code class="docutils literal notranslate"><span class="pre">app.py</span></code> when executed in the container.<br /><code class="docutils literal notranslate"><span class="pre">-v</span> <span class="pre">&quot;$PWD/output_data:/project/output_data&quot;</span></code>. This will mount the <code class="docutils literal notranslate"><span class="pre">scikit-surgerydocker/project/output</span></code> directory from docker host to <code class="docutils literal notranslate"><span class="pre">/project/output_data</span></code> directory in the container. So the <code class="docutils literal notranslate"><span class="pre">app.py</span></code> application on execution will write to <code class="docutils literal notranslate"><span class="pre">/project/output_data</span></code> in the container, we will automatically get it on docker host in <code class="docutils literal notranslate"><span class="pre">scikit-surgerydocker/project/output_data</span></code> because of the mount.</p>
 <p><strong>NOTE:</strong> The docker container will exit after running the app.py script. It is normal for docker to stop the conainer automatically after executing the job.</p>
 </div>
-</div>
 <div class="section" id="step-6-verifying-container">
-<h1>Step 6: Verifying container<a class="headerlink" href="#step-6-verifying-container" title="Permalink to this headline">¶</a></h1>
+<h2>Step 6: Verifying container<a class="headerlink" href="#step-6-verifying-container" title="Permalink to this headline">¶</a></h2>
 <p>You can verify the newly created container by running the following command on docker host.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">ps</span> <span class="o">-</span><span class="n">a</span>
 </pre></div>
@@ -263,6 +262,7 @@ In the example we know that the input data is stored in <code class="docutils li
 <span class="n">cd</span> <span class="n">output</span>
 <span class="n">cat</span> <span class="n">output</span><span class="o">-</span><span class="n">file</span><span class="o">.</span><span class="n">txt</span>
 </pre></div>
+</div>
 </div>
 </div>
 
