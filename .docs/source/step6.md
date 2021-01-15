@@ -46,5 +46,5 @@ docker tag <image id found in step 1> yourgithubusername/my-project:team1
 6. Now you can upload the tagged image to docker hub. It will take time in uploading depending on the size of the image.
 
 ```
-docker push yourgithubusername/my-project:team1
+docker push yourgithubusername/my-project:latest
 ```
