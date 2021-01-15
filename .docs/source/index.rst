@@ -6,8 +6,8 @@ Welcome to scikit-surgerydocker's documentation!
    :caption: Contents:
 
    cpu_container
-   share_container.md
    gpu_container
+   share_container.md
 
 
 
