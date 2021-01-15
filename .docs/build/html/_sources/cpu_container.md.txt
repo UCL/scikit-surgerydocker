@@ -1,0 +1,121 @@
+# Dockerizing a CPU program:
+This is a hands on demo tutorial, showing how scikit-surgerydocker package could be used to dockerize the Python application.
+In this demo we are dockerizing [cpu-ex](https://github.com/UCL/cpu-ex) program. 
+
+## About cpu-ex program:
+The cpu-ex is short for CPU-Example, which means that the program does not require GPU for execution (For programs requiring GPU, see the next example). The cpu-ex is mimicing what a real world algorithm/program will do on execution i.e. 
+
+1. Read the input file `input_file.txt` from the `cpu-ex/input_data` directory
+1. Process it, append more lines to the existing text
+1. Store the output in newly created file `output_file.txt` in `cpu-ex/output_data`.
+
+## Step 1: Clone the projects
+First step is to clone both the projects.
+
+It is recommended to create a new directory.
+```
+# Make temp directory
+mkdir temp
+# Change directory to temp
+cd temp
+```
+To clone scikit-surgerydocker:
+```
+git clone https://github.com/UCL/scikit-surgerydocker.git
+```
+To clone the project to containerise:
+```
+https://github.com/UCL/cpu-ex.git
+```
+Now the temp directory will have the following structure
+```
+temp
+├── cpu-ex
+│   ├── docs
+│   │   └── source
+│   ├── input
+│   ├── src
+│   └── tests
+│       └── data
+└── scikit-surgerydocker
+    ├── input_data
+    ├── output_data
+    └── src
+```
+
+## Step 2: Copy the code
+Second step is to copy the application/algorithm code from your project (cpu-ex) to scikit-surgerydocker
+```
+cp -r cpu-ex/src/* scikit-surgerydocker/src/
+```
+
+## Step 3: Copy the input data
+Third step is to copy the input data to `scikit-surgerydocker/input_data` directory. In cpu-ex project the input data is stored in `cpu-ex/input` directory. 
+```
+cp -r cpu-ex/input/* scikit-surgerydocker/input_data/*
+```
+
+## Step 4: Containerize the application
+
+To containerise the project a `Dockerfile` is provided in the scikit-surgerydocker. It contains the specifications required for your application e.g. the specific Python version needed to run the program and any dependant packages needed to run the application. Please read the `Dockerfile` in the repo for further information.
+
+Run the following command to create a docker image with the name `my-project`.  
+**Note:** The following command will only work if you are in the directory where the `Dockerfile` is saved. In our case `Dockerfile` is in the `scikit-surgerydocker' root directory.
+**Note:** Please also make sure that [Docker](https://docs.docker.com/engine/) is installed and docker engine is running before executing the following command.
+
+```
+cd scikit-surgerydocker
+docker build -t my-project .
+```
+
+**Note:** Dont forget the trailing . (dot) at the end of the above command.
+
+Run the following command to check that your docker image is created.
+This command will show all the docker images you have on your docker host including the newly created `my-project` Docker image.
+
+```
+docker images
+```
+
+The newly created `my-project` image will have the Python version "3.6" specified in the `Dockerfile` and the dependencies installed (if any) and finally the source code.
+
+## Step 5: Program execution from image
+
+After you have containerized your Python application, you can run it on your computer for testing before sharing with others.
+In the example we know that the input data is stored in `scikit-surgerydocker/input_data` and the program will write results to `scikit-surgerydocker/output_data`. 
+
+The following command will create a new `container` from image `my-project`.
+
+```
+cd scikit-surgerydocker
+docker run -v "$PWD/input_data:/project/input_data" -v "$PWD/output_data:/project/output_data" my-project
+```
+
+In the above command,  
+`my-project` is the docker image name.  
+`-v "$PWD/input_data:/project/input_data"` This parameter will mount the `scikit-surgerydocker/input_data` directory from docker host to `/project/input_data` directory in the container to make the input file availabe to our python `app.py` when executed in the container.  
+`-v "$PWD/output_data:/project/output_data"`. This will mount the `scikit-surgerydocker/project/output` directory from docker host to `/project/output_data` directory in the container. So the `app.py` application on execution will write to `/project/output_data` in the container, we will automatically get it on docker host in `scikit-surgerydocker/project/output_data` because of the mount.
+
+**NOTE:** The docker container will exit after running the app.py script. It is normal for docker to stop the conainer automatically after executing the job.
+
+# Step 6: Verifying container
+
+You can verify the newly created container by running the following command on docker host.
+
+```
+docker ps -a
+```
+
+Check the status column, which should show `Exited`, as the container exits after the script has been run. In our case, its job was to read text from input file and append text with it and write to output file.
+
+
+# Step 7: Checking the output
+
+To verify the processing performed in the container after executing the above run command. On docker host
+
+```
+cd scikit-surgerydocker/project/output
+cd output
+cat output-file.txt
+```
+
