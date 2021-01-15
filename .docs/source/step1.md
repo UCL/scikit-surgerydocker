@@ -9,7 +9,7 @@ The cpu-ex is short for CPU-Example, which means that the program does not requi
 1. Process it, append more lines to the existing text
 1. Store the output in newly created file `output_file.txt` in `cpu-ex/output_data`.
 
-## Clone the projects
+## Step 1: Clone the projects
 First step is to clone both the projects.
 
 It is recommended to create a new directory.
@@ -33,56 +33,24 @@ temp
 ├── cpu-ex
 │   ├── docs
 │   │   └── source
-│   ├── project
-│   │   ├── input
-│   │   └── output
+│   ├── input
+│   ├── src
 │   └── tests
 │       └── data
 └── scikit-surgerydocker
-    ├── docs
-    │   └── source
-    ├── project
-    │   ├── input
-    │   └── output
-    └── tests
-        └── data
+    ├── input_data
+    ├── output_data
+    └── src
 ```
 
-## Copy the code
-Second step is to copy the application/algorithm code from your project (cpu-ex) to scikit-surgerydocker 
-
-
-
-
-
-
-
-
-
-# Program execution without docker
-
-First step is to clone the repository using the following command
-
+## Step 2: Copy the code
+Second step is to copy the application/algorithm code from your project (cpu-ex) to scikit-surgerydocker
 ```
-git clone git@github.com:UCL/scikit-surgerydocker.git
+cp -r cpu-ex/src/* scikit-surgerydocker/src/
 ```
 
-To run the python application directly
-
+## Step 3: Copy the input data
+Third step is to copy the input data to `scikit-surgerydocker/input_data` directory. In cpu-ex project the input data is stored in `cpu-ex/input` directory. 
 ```
-cd scikit-surgerydocker/project
-python3 app.py
-```
-
-On execution the python program will:
-
-1. Read the text file `input_file.txt` from the `scikit-surgerydocker/project/input` directory
-2. Append more lines to the existing text
-3. Store the whole text in a newly created file `output_file.txt` in `scikit-surgerydocker/project/output`.
-
-You can check the `output_file.txt` after executing `app.py`.
-
-```
-cd ./output
-cat output_file.txt
+cp -r cpu-ex/input/* scikit-surgerydocker/input_data/*
 ```
