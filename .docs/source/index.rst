@@ -12,7 +12,6 @@ Welcome to scikit-surgerydocker's documentation!
    step5
    step6
 
-   modules
 
 
 
