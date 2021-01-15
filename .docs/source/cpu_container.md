@@ -79,7 +79,7 @@ docker images
 
 The newly created `my-project` image will have the Python version "3.6" specified in the `Dockerfile` and the dependencies installed (if any) and finally the source code.
 
-## Step 5: Program execution from image
+## Step 5: Execution of image
 
 After you have containerized your Python application, you can run it on your computer for testing before sharing with others.
 In the example we know that the input data is stored in `scikit-surgerydocker/input_data` and the program will write results to `scikit-surgerydocker/output_data`. 
