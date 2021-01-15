@@ -1,4 +1,4 @@
-# To containerize the application
+# Containerize the application
 
 To containerise the project a `Dockerfile` is provided in the scikit-surgerydocker. It contains the specifications required for your application e.g. the specific Python version needed to run the program and any dependant packages needed to run the application. Please read the `Dockerfile` in the repo for further information.
 
