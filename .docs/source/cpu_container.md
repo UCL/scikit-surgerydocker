@@ -98,7 +98,7 @@ In the above command,
 
 **NOTE:** The docker container will exit after running the app.py script. It is normal for docker to stop the conainer automatically after executing the job.
 
-# Step 6: Verifying container
+## Step 6: Verifying container
 
 You can verify the newly created container by running the following command on docker host.
 
