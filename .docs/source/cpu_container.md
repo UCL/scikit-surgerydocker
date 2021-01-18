@@ -3,7 +3,7 @@ This is a hands on demo tutorial, showing how scikit-surgerydocker package could
 In this demo we are dockerizing [cpu-ex](https://github.com/UCL/cpu-ex) program. 
 
 ## About cpu-ex program:
-The cpu-ex is short for CPU-Example, which means that the program does not require GPU for execution (For programs requiring GPU, see the next example). The cpu-ex is mimicing what a real world algorithm/program will do on execution i.e. 
+The cpu-ex is short for CPU-Example. It is called CPU-ex because it utilizes CPU for execution execution. Check the repo [cpu-ex](https://github.com/UCL/cpu-ex) for more details. The cpu-ex is mimicing how a real world algorithm/program will perform on execution i.e. 
 
 1. Read the input file `input_file.txt` from the `cpu-ex/input_data` directory
 1. Process it, append more lines to the existing text
