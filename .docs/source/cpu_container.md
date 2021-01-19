@@ -114,8 +114,8 @@ Check the status column, which should show `Exited`, as the container exits afte
 To verify the processing performed in the container after executing the above run command. On docker host
 
 ```
-cd scikit-surgerydocker/project/output
-cd output
-cat output-file.txt
+cd scikit-surgerydocker/
+cd output_data
+cat output_file.txt
 ```
 
