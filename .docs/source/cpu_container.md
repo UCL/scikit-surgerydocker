@@ -52,7 +52,7 @@ cp -r cpu-ex/src/* scikit-surgerydocker/src/
 ## Step 3: Copy the input data
 Third step is to copy the input data to `scikit-surgerydocker/input_data` directory. In cpu-ex project the input data is stored in `cpu-ex/input` directory. 
 ```
-cp -r cpu-ex/input/* scikit-surgerydocker/input_data/
+cp -r cpu-ex/input_data/* scikit-surgerydocker/input_data/
 ```
 
 ## Step 4: Containerize the application
