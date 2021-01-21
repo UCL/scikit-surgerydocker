@@ -42,3 +42,8 @@ Now the temp directory will have the following structure
     ├── static
     └── templates
 ```
+## Step 2: Copy the code
+Second step is to copy the application/algorithm code from your project (stereo-recon-example) to scikit-surgerydocker
+```
+cp -r stereo-recon-example/* scikit-surgerydocker/src/
+```
