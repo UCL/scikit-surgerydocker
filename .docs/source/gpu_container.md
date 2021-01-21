@@ -47,3 +47,9 @@ Second step is to copy the application/algorithm code from your project (stereo-
 ```
 cp -r stereo-recon-example/* scikit-surgerydocker/src/
 ```
+## Step 3: Copy the input data
+Since this application needs data from front-end therefore no need of specifying input data here. So no action needed here.
+
+
+
+
