@@ -54,7 +54,7 @@ Since this application needs data from front-end therefore no need of specifying
 
 To containerise the project a `Dockerfile` is provided in the scikit-surgerydocker. It contains the specifications required for standard Python 3.6 application i.e. the specific Python version needed to run the program and any dependant packages needed to run the application. Please read the `Dockerfile` in the repo for further information. Feel free to modify the `Dockerfile` according to your environment.
 
-Run the following command to create a docker image with the name `my-project`.  
+Run the following command to create a docker image with the name `my-project-2`.  
 **Note:** The following command will only work if you are in the directory where the `Dockerfile` is saved. In our case `Dockerfile` is in the `scikit-surgerydocker/' root directory.
 **Note:** Please also make sure that [Docker](https://docs.docker.com/engine/) is installed and docker engine is running before executing the following command.
 
@@ -63,4 +63,14 @@ cd scikit-surgerydocker
 docker build -t my-project-2 .
 ```
 
+**Note:** Dont forget the trailing . (dot) at the end of the above command.
+
+Run the following command to check that your docker image is created.
+This command will show all the docker images you have on your docker host including the newly created `my-project-2` Docker image.
+
+```
+docker images
+```
+
+The newly created `my-project-2` image will have the Python version "3.6" specified in the `Dockerfile` and the dependencies installed (if any) and finally the source code.
 
