@@ -24,10 +24,10 @@ RUN pip install -r requirements.txt
 COPY . .
 
 # To use Python version 3 for execution
-ENTRYPOINT ["python3"]
+# ENTRYPOINT ["python3"]
 
 # To change directory to src
 RUN cd /src
 
 # To run app.py application by python3
-CMD [ "app.py" ]
+CMD ["python3", "app.py" ]
