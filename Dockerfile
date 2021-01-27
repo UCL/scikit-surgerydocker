@@ -1,8 +1,14 @@
 # Base python image
-FROM python:3.6
+FROM nvidia/cuda:11.0-base
+
+# To install pip
+RUN apt-get install -y python-pip && \
+    pip install --upgrade pip
 
 # Set the working directory to /src in the container
 WORKDIR /
+
+# Update the system
 
 # To copy requirements.txt 
 COPY ./src/requirements.txt .
