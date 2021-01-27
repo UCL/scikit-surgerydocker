@@ -3,7 +3,7 @@ FROM nvidia/cuda:11.0-base
 
 # To install python
 RUN apt-get update && \
-    apt-get install python3
+    apt-get install -y python3
 
 # To install pip
 RUN apt-get install -y python-pip && \
