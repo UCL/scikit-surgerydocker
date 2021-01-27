@@ -1,5 +1,13 @@
 # Base python image
-FROM python:3.6
+FROM nvidia/cuda:11.0-base
+
+# To install python
+RUN apt-get update && \
+    apt-get install -y python3
+
+# To install pip
+RUN apt-get install -y python3-pip && \
+    pip3 install --upgrade pip
 
 # Set the working directory to /src in the container
 WORKDIR /
@@ -14,7 +22,10 @@ RUN pip install -r requirements.txt
 COPY . .
 
 # To use Python version 3 for execution
-ENTRYPOINT ["python3"]
+# ENTRYPOINT ["python3"]
+
+# To change directory to src
+RUN cd /src
 
 # To run app.py application by python3
-CMD [ "app.py" ]
+CMD ["python3", "app.py"]
