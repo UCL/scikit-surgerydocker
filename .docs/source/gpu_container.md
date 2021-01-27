@@ -74,3 +74,21 @@ docker images
 
 The newly created `my-project-2` image will have the Python version "3.6" specified in the `Dockerfile` and the dependencies installed (if any) and finally the source code.
 
+## Step 5: Execution of image
+
+After you have containerized your Python application, you can run it on your computer for testing before sharing with others.
+
+
+The following command will create a new `container` from image `my-project-2`.
+
+```
+cd scikit-surgerydocker
+docker run -p 5000:5000 my-project-2 
+```
+
+In the above command,  
+`my-project` is the docker image name.  
+`-v "$PWD/input_data:/input_data"` This parameter will mount the `scikit-surgerydocker/input_data` directory from docker host to `/input_data` directory in the container to make the input file availabe to our python `app.py` when executed in the container.  
+`-v "$PWD/output_data:/output_data"`. This will mount the `scikit-surgerydocker/output_data` directory from docker host to `/output_data` directory in the container. So the `app.py` application on execution will write to `/output_data` in the container, we will automatically get it on docker host in `scikit-surgerydocker/output_data` because of the mount.
+
+**NOTE:** The docker container will exit after running the app.py script. It is normal for docker to stop the conainer automatically after executing the job.
