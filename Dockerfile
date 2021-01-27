@@ -2,8 +2,10 @@
 FROM nvidia/cuda:11.0-base
 
 # To install python
-RUN apt-get update && \
-    apt-get install -y python3
+RUN apt-get install software-properties-common && \
+    add-apt-repository ppa:deadsnakes/ppa && \
+    apt-get update && \
+    apt-get install -y python3.6
 
 # To install pip
 RUN apt-get install -y python3-pip && \
