@@ -5,6 +5,9 @@ FROM nvidia/cuda:11.0-base
 RUN apt-get install software-properties-common && \
     add-apt-repository ppa:deadsnakes/ppa && \
     apt-get update && \
+    apt-get update && \
+    apt-get -y purge python3.8 && \
+    apt-get -y autoremove && \
     apt-get install -y python3.6
 
 # To install pip
