@@ -1,14 +1,9 @@
 # Base python image
-FROM nvidia/cuda:11.0-base
+FROM nvidia/cuda:11.1.1-devel-ubuntu18.04
 
 # To uninstall default python 3.8 and install python 3.6
 
-RUN apt-get install software-properties-common && \
-    add-apt-repository ppa:deadsnakes/ppa && \
-    apt-get update && \
-    apt-get update && \
-    apt-get -y purge python3.8 && \
-    apt-get -y autoremove && \
+RUN apt-get update && \
     apt-get install -y python3.6
 
 # To install pip
