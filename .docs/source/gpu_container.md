@@ -20,7 +20,7 @@ git clone https://github.com/UCL/scikit-surgerydocker.git
 ```
 To clone the project to containerise:
 ```
-git clone https://weisslab.cs.ucl.ac.uk/ThomasDowrick/stereo-recon-example.git
+git clone --recursive https://weisslab.cs.ucl.ac.uk/ThomasDowrick/stereo-recon-example
 ```
 Now the temp directory will have the following structure
 ```
