@@ -14,7 +14,7 @@ RUN apt-get install -y python3-pip && \
 RUN apt-get install ffmpeg libsm6 libxext6 -y
 
 # Set the working directory to /src in the container
-WORKDIR /
+WORKDIR /usr/program
 
 # Copy the requirements.txt to the image
 COPY src/requirements.txt .
@@ -29,7 +29,7 @@ COPY . .
 # ENTRYPOINT ["python3"]
 
 # To change directory to src
-# RUN cd /src
+WORKDIR /usr/program/src
 
 # To run app.py application by python3
-CMD ["python3", "/src/app.py"]
+CMD ["python3", "app.py"]
