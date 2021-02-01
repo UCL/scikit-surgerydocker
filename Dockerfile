@@ -10,6 +10,9 @@ RUN apt-get update && \
 RUN apt-get install -y python3-pip && \
     pip3 install --upgrade pip
 
+# OS level
+RUN apt-get install ffmpeg libsm6 libxext6 -y
+
 # Set the working directory to /src in the container
 WORKDIR /
 
@@ -26,7 +29,7 @@ COPY . .
 # ENTRYPOINT ["python3"]
 
 # To change directory to src
-RUN cd /src
+# RUN cd /src
 
 # To run app.py application by python3
-CMD ["python3", "app.py"]
+CMD ["python3", "/src/app.py"]
