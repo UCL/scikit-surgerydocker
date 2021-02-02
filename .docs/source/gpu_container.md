@@ -100,6 +100,6 @@ In the above command,
 
 **NOTE:** The docker container will exit after running the app.py script. It is normal for docker to stop the conainer automatically after executing the job.
 
-## Step 5: Access the front-end
+## Step 6: Access the front-end
 
 If everything is working then after executing the command in step 5 the application should up and running. To access the application front-end, open the browser and go to address http://127.0.0.1:5000
