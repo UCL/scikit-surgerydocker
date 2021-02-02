@@ -10,8 +10,8 @@ RUN apt-get update && \
 RUN apt-get install -y python3-pip && \
     pip3 install --upgrade pip
 
-# OS level
-RUN apt-get install ffmpeg libsm6 libxext6 -y
+# OS level dependencies
+# RUN apt-get install ffmpeg libsm6 libxext6 -y
 
 # Set the working directory to /src in the container
 WORKDIR /usr/program
