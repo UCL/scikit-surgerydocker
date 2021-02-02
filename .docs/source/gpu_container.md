@@ -1,6 +1,6 @@
 # Dockerizing a GPU program:
 This is a hands on demo tutorial, showing how scikit-surgerydocker package could be used to dockerize the Python application.
-In this demo we are dockerizing [stereo-recon-example](https://weisslab.cs.ucl.ac.uk/ThomasDowrick/stereo-recon-example) program.
+In this demo we are dockerizing [stereo-recon-example](https://weisslab.cs.ucl.ac.uk/ThomasDowrick/stereo-recon-example) program that needs a GPU on the host computer (computer running docker) and Nvidia Driver installed.
 
 ## About stereo-recon-example program:
 
@@ -48,11 +48,20 @@ Second step is to copy the application/algorithm code from your project (stereo-
 cp -r stereo-recon-example/* scikit-surgerydocker/src/
 ```
 ## Step 3: Copy the input data
-Since this application needs data from front-end therefore no need of specifying input data here. So no action needed here.
+Since this application needs data from front-end (web interface) therefore no need of specifying input data here. So no action needed here.
 
 ## Step 4: Containerize the application
 
-To containerise the project a `Dockerfile` is provided in the scikit-surgerydocker. It contains the specifications required for standard Python 3.6 application i.e. the specific Python version needed to run the program and any dependant packages needed to run the application. Please read the `Dockerfile` in the repo for further information. Feel free to modify the `Dockerfile` according to your environment.
+To containerise the project a `Dockerfile` is provided in the scikit-surgerydocker. The Dockerfile uses `nvidia/cuda:11.1.1-devel-ubuntu18.04` i.e. Ubuntu 18.04 as base operating system along with Nvidia and Cuda software. On the base image Python 3.6.9 and pip 3 is installed. The pip utility is used to install the packages required by the app and mentioned in the requirements.txt. Please read the `Dockerfile` in the repo for further information. Feel free to modify the `Dockerfile` according to your environment.
+
+This particular example needs `ffmpeg, libsm6, libxext6` libraries installed in the Ubuntu 18.04, so you can install them in the image by adding the following line in `# OS level dependencies` section of the docker file.
+```
+RUN apt-get install ffmpeg libsm6 libxext6 -y
+```
+
+
+
+
 
 Run the following command to create a docker image with the name `my-project-2`.  
 **Note:** The following command will only work if you are in the directory where the `Dockerfile` is saved. In our case `Dockerfile` is in the `scikit-surgerydocker/' root directory.
