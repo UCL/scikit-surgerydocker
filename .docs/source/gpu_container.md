@@ -59,10 +59,6 @@ This particular example needs `ffmpeg, libsm6, libxext6` libraries installed in 
 RUN apt-get install ffmpeg libsm6 libxext6 -y
 ```
 
-
-
-
-
 Run the following command to create a docker image with the name `my-project-2`.  
 **Note:** The following command will only work if you are in the directory where the `Dockerfile` is saved. In our case `Dockerfile` is in the `scikit-surgerydocker/' root directory.
 **Note:** Please also make sure that [Docker](https://docs.docker.com/engine/) is installed and docker engine is running before executing the following command.
@@ -81,7 +77,7 @@ This command will show all the docker images you have on your docker host includ
 docker images
 ```
 
-The newly created `my-project-2` image will have the Python version "3.6" specified in the `Dockerfile` and the dependencies installed (if any) and finally the source code.
+The newly created `my-project-2` image will have the Python version "3.6.9" specified in the `Dockerfile` and the dependencies installed and finally the source code.
 
 ## Step 5: Execution of image
 
@@ -96,8 +92,14 @@ docker run -p 5000:5000 --gpus all my-project-2
 ```
 
 In the above command,  
-`my-project` is the docker image name.  
-`-v "$PWD/input_data:/input_data"` This parameter will mount the `scikit-surgerydocker/input_data` directory from docker host to `/input_data` directory in the container to make the input file availabe to our python `app.py` when executed in the container.  
-`-v "$PWD/output_data:/output_data"`. This will mount the `scikit-surgerydocker/output_data` directory from docker host to `/output_data` directory in the container. So the `app.py` application on execution will write to `/output_data` in the container, we will automatically get it on docker host in `scikit-surgerydocker/output_data` because of the mount.
+`my-project-2` is the docker image name.     
+
+`-p 5000:5000` will expose port 5000 inside the container to port 5000 of the docker host.
+
+`--gpus all` will use all the installed physical gpus used for running the application.
 
 **NOTE:** The docker container will exit after running the app.py script. It is normal for docker to stop the conainer automatically after executing the job.
+
+## Step 5: Access the front-end
+
+If everything is working then after executing the command in step 5 the application should up and running. To access the application front-end, open the browser and go to address http://127.0.0.1:5000
