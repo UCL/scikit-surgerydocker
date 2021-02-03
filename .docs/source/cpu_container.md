@@ -3,10 +3,10 @@ This is a hands on demo tutorial, showing how scikit-surgerydocker package could
 In this demo we are dockerizing [cpu-ex](https://github.com/UCL/cpu-ex) program. 
 
 ## About cpu-ex program:
-The cpu-ex is short for CPU-Example. It is called CPU-ex because it utilizes CPU for execution execution. Check the repo [cpu-ex](https://github.com/UCL/cpu-ex) for more details. The cpu-ex is mimicing how a real world algorithm/program will perform on execution i.e. 
+The cpu-ex is short for CPU-Example. It is called CPU-ex because it utilizes CPU for program execution. Check the repo [cpu-ex](https://github.com/UCL/cpu-ex) for more details. The cpu-ex is mimicing how a real world algorithm/program will perform on execution i.e. 
 
 1. Read the input file `input_file.txt` from the `cpu-ex/input_data` directory
-1. Process it, append more lines to the existing text
+1. Process it (Append more lines to the existing text in this case).
 1. Store the output in newly created file `output_file.txt` in `cpu-ex/output_data`.
 
 ## Step 1: Clone the projects
@@ -25,7 +25,7 @@ git clone https://github.com/UCL/scikit-surgerydocker.git
 ```
 To clone the project to containerise:
 ```
-https://github.com/UCL/cpu-ex.git
+git clone https://github.com/UCL/cpu-ex.git
 ```
 Now the temp directory will have the following structure
 ```
@@ -50,7 +50,7 @@ cp -r cpu-ex/src/* scikit-surgerydocker/src/
 ```
 
 ## Step 3: Copy the input data
-Third step is to copy the input data to `scikit-surgerydocker/input_data` directory. In cpu-ex project the input data is stored in `cpu-ex/input` directory. 
+Third step is to copy the input data to `scikit-surgerydocker/input_data` directory. In cpu-ex project the input data is stored in `cpu-ex/input_data` directory. 
 ```
 cp -r cpu-ex/input_data/* scikit-surgerydocker/input_data/
 ```
