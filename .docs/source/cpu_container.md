@@ -59,8 +59,10 @@ cp -r cpu-ex/input_data/* scikit-surgerydocker/input_data/
 
 To containerise the project a `Dockerfile` is provided in the scikit-surgerydocker. It contains the specifications required for standard Python 3.6 application e.g. the specific Python version needed to run the program and any dependant packages needed to run the application. Please read the `Dockerfile` in the repo for further information. Feel free to modify the `Dockerfile` according to your environment.
 
-Run the following command to create a docker image with the name `my-project`.  
-**Note:** The following command will only work if you are in the directory where the `Dockerfile` is saved. In our case `Dockerfile` is in the `scikit-surgerydocker/' root directory.
+Run the following command to create a docker image with the name `my-project`.    
+
+**Note:** The following command will only work if you are in the directory where the `Dockerfile` is saved. In our case `Dockerfile` is in the `scikit-surgerydocker/' root directory.   
+
 **Note:** Please also make sure that [Docker](https://docs.docker.com/engine/) is installed and docker engine is running before executing the following command.
 
 ```
