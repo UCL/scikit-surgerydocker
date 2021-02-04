@@ -3,6 +3,7 @@ This is a hands on demo tutorial, showing how scikit-surgerydocker package could
 In this demo we are dockerizing [stereo-recon-example](https://weisslab.cs.ucl.ac.uk/ThomasDowrick/stereo-recon-example) program that needs a GPU on the host computer (computer running docker) and Nvidia Driver installed.
 
 ## About stereo-recon-example program:
+The program is modifed code of [keras-flask-deploy-webapp](https://github.com/mtobeiyf/keras-flask-deploy-webapp) to make it work with the PSMNet model, and predict disparity maps from left/right images.
 
 ## Step 1: Clone the projects
 First step is to clone both the projects.
