@@ -79,7 +79,7 @@ This command will show all the docker images you have on your docker host includ
 docker images
 ```
 
-The newly created `my-project` image will have the Python version "3.6" specified in the `Dockerfile` and the dependencies installed (if any) and finally the source code.
+The newly created `my-project` image will have Ubuntu 18.04 as base operating system. It will be able to identify and use the installed Nvidia driver on host machine. It will also have CUDA version 11.1.1 available to use. Beside the basic software Python 3.6 is installed in the image to execute the example application. It will also have any packages mentioned in the requirements.txt that are required by the example application to run properly.
 
 ## Step 5: Execution of image
 
