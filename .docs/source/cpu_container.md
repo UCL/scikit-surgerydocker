@@ -89,8 +89,13 @@ In the example we know that the input data is stored in `scikit-surgerydocker/in
 The following command will create a new `container` from image `my-project`.
 
 ```
+# On Linux/Mac
 cd scikit-surgerydocker
 docker run -v "$PWD/input_data:/usr/program/input_data" -v "$PWD/output_data:/usr/program/output_data" my-project
+
+# On Windows (using gitbash)
+cd scikit-surgerydocker
+docker run -v "/$PWD/input_data:/usr/program/input_data" -v "/$PWD/output_data:/usr/program/output_data" my-project
 ```
 
 In the above command,  
