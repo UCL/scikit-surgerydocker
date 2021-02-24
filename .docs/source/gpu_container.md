@@ -68,9 +68,16 @@ Since this application needs data from front-end (web interface) therefore no ne
 
 To containerise the project a `Dockerfile` is provided in the scikit-surgerydocker. The Dockerfile uses `nvidia/cuda:11.1.1-devel-ubuntu18.04` i.e. Ubuntu 18.04 as base operating system along with Nvidia and Cuda software. On the base image Python 3.6.9 and pip 3 is installed. The pip utility is used to install the packages required by the app and mentioned in the requirements.txt. Please read the `Dockerfile` in the repo for further information. Feel free to modify the `Dockerfile` according to your environment.
 
-This particular example needs `ffmpeg, libsm6, libxext6` libraries installed in the Ubuntu 18.04, so you can install them in the image by adding the following line in `# OS level dependencies` section of the docker file.
+This particular example needs `ffmpeg, libsm6, libxext6` libraries installed in the Ubuntu 18.04, so you can install them in the image by adding the following line in `# OS level dependencies` section of the Dockerfile.
 ```
+# Open the Dockerfile stored in scikit-surgerydocker
+cd scikit-surgerydocker
+nano Dockerfile
+
+# Uncomment the following line (remove # at the start of the line.)
 RUN apt-get install ffmpeg libsm6 libxext6 -y
+
+# Save the changes and exit.
 ```
 
 Run the following command to create a docker image with the name `my-project-2`.  
