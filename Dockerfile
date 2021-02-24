@@ -1,5 +1,5 @@
 # Base python image
-FROM nvidia/cuda:11.1.1-devel-ubuntu18.04
+FROM nvidia/cuda:10.2-devel-ubuntu18.04
 
 # To uninstall default python 3.8 and install python 3.6
 
