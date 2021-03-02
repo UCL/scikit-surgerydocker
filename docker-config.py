@@ -1,7 +1,7 @@
 def main():
     welcome()
-    OS_version, py_ver  = get_values()
-    write_docker(OS_version, py_ver)
+    OS_version, py_ver, os_deps = get_values()
+    write_docker(OS_version, py_ver, os_deps)
 
 def welcome():
     print('Welcome to the Docker configuration script.')
@@ -13,6 +13,7 @@ def get_values():
     cpu_gpu=""
     OS_version=""
     py_ver=""
+    os_deps=""
     cpu_os = ['ubuntu', 'ubuntu:20.04', 'ubuntu:18.04']
     gpu_os = ['nvidia/cuda', 'nvidia/cuda:11.2.1-devel-ubuntu20.04', 'nvidia/cuda:10.2-devel-ubuntu18.04']
     py_version = ['python3.6', 'python3.7', 'python3.8']
@@ -37,22 +38,28 @@ def get_values():
     print(*py_version, sep=', ')
     py_ver = input()
 
+    # To install OS level dependencies
+    print('Enter an Operating System level dependencies required by the application.')
+    print('Seperate each dependency by space e.g. ffmpeg libsm6 :', end=" ")
+    os_deps = input().split()
 
 
 
-    return OS_version, py_ver
+
+    return OS_version, py_ver, os_deps
 
 
 
 
-def write_docker(OS_version, py_ver):
+def write_docker(OS_version, py_ver, os_deps):
     print(f'''
     FROM {OS_version}
     RUN apt-get update
     RUN apt-get install -y {py_ver} 
     RUN apt-get install -y python3-pip && pip3 install --upgrade pip
-    
     ''')
+    for item in os_deps:
+        print(f'RUN apt install -y', item)
     
 
 
