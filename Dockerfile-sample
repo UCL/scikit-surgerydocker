@@ -1,7 +1,7 @@
 # Base python image
 FROM nvidia/cuda:10.2-devel-ubuntu18.04
 
-# To uninstall default python 3.8 and install python 3.6
+# To install python 3.6
 
 RUN apt-get update && \
     apt-get install -y python3.6
