@@ -49,7 +49,8 @@ def write_docker(OS_version, py_ver):
     print(f'''
     FROM {OS_version}
     RUN apt-get update
-    RUN apt-get install -y {py_ver}
+    RUN apt-get install -y {py_ver} 
+    RUN apt-get install -y python3-pip && pip3 install --upgrade pip
     
     ''')
     
