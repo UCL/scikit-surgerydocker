@@ -1,7 +1,7 @@
 def main():
     welcome()
     OS_version, py_ver, os_deps = get_values()
-    write_docker(OS_version, py_ver, os_deps)
+    create_dockerfile(OS_version, py_ver, os_deps)
 
 def welcome():
     print('Welcome to the Docker configuration script.')
@@ -25,7 +25,7 @@ def get_values():
     # To provide the options according to the CPU or GPU requirements.
     print('Enter the base operating system for your requirement.')
     print('The available options are:', end=" ")
-    if(cpu_gpu.lower == 'n'):
+    if(cpu_gpu.lower() == 'no'):
         print(*cpu_os, sep=', ')
         OS_version=input()
     else:
@@ -42,25 +42,25 @@ def get_values():
     print('Enter an Operating System level dependencies required by the application.')
     print('Seperate each dependency by space e.g. ffmpeg libsm6 :', end=" ")
     os_deps = input().split()
-
-
-
-
     return OS_version, py_ver, os_deps
 
 
 
 
-def write_docker(OS_version, py_ver, os_deps):
-    print(f'''
-    FROM {OS_version}
-    RUN apt-get update
-    RUN apt-get install -y {py_ver} 
-    RUN apt-get install -y python3-pip && pip3 install --upgrade pip
-    ''')
-    for item in os_deps:
-        print(f'RUN apt install -y', item)
-    
+def create_dockerfile(OS_version, py_ver, os_deps):
+
+    with open('Dockerfile', 'w+') as f:
+        f.write(f'FROM {OS_version}\n')
+        f.write('RUN apt-get update\n')
+        f.write(f'RUN apt-get install -y {py_ver}\n')
+        f.write('RUN apt-get install -y python3-pip && pip3 install --upgrade pip\n')
+        for item in os_deps:
+            f.write(f'RUN apt install -y {item}\n')
+        f.write('COPY src/requirements.txt .\n')
+        f.write('RUN pip install -r requirements.txt\n')
+        f.write('COPY . .\n')
+        f.write('WORKDIR /usr/program/src\n')
+        f.write('CMD ["python3", "app.py"]\n')
 
 
 
