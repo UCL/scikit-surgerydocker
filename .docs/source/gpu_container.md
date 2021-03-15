@@ -5,6 +5,29 @@ In this demo we are dockerizing [stereo-recon-example](https://weisslab.cs.ucl.a
 ## About stereo-recon-example program:
 The program is modifed code of [keras-flask-deploy-webapp](https://github.com/mtobeiyf/keras-flask-deploy-webapp) to make it work with the PSMNet model, and predict disparity maps from left/right images.
 
+
+## Preliminary requirements:
+Before starting make sure that you meet the software and hardware requirement.
+### Software Requirements:
+#### On Linux
+On Linux, the software you need are.
+1. Docker
+1. NVIDIA driver 
+1. NVIDIA Container runtime
+
+#### On Windows
+Sharing GPU of host computer with docker is not possible on Windows yet. So do not run this example on Windows computer.
+
+#### On Mac
+Sharing GPU of host computer with docker is not possible on Mac yet. So do not run this example on Mac computer.
+
+### Hardware Requirements:
+Make sure that you have GPU present on the Computer running docker.
+
+
+
+
+
 ## Step 0: Prepare the docker host
 Docker host is the machine on which the docker is installed. To run the GPU program in docker you need to install [nvidia-container-runtime](https://nvidia.github.io/nvidia-container-runtime/). 
 The steps for debian based distribution are
@@ -15,8 +38,6 @@ curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.li
 sudo apt-get update && sudo apt-get install -y nvidia-container-toolkit
 sudo systemctl restart docker
 ```
-
-
 
 ## Step 1: Clone the projects
 First step is to clone both the projects.

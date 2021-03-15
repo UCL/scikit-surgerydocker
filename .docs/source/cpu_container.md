@@ -9,6 +9,23 @@ The cpu-ex is short for CPU-Example. It is called CPU-ex because it utilizes CPU
 1. Process it (Append more lines to the existing text in this case).
 1. Store the output in newly created file `output_file.txt` in `cpu-ex/output_data`.
 
+## Preliminary requirements:
+Before starting make sure that you meet the software and hardware requirement.
+
+### Software Requirements:
+#### On Windows
+On Windows operating system, you need to have
+1. Docker
+2. Gitbash
+
+#### On Linux and Mac
+On both Linux and Mac, all you need is docker installed and running.
+1. Docker
+
+### Hardware Requirements:
+There is no specific hardware requirement to run this example.
+
+
 ## Step 1: Clone the projects
 First step is to clone both the projects.
 
