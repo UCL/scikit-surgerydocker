@@ -24,11 +24,11 @@ Gitbash is another free lightweight tool that provides a BASH emulation to run g
 On both Linux and Mac, all you need is docker installed and running.
 ##### Docker
 To install Docker on Linux check [here](https://docs.docker.com/get-docker/).   
-To install Docker on Mac check [here](https://docs.docker.com/docker-for-mac/install/)
+To install, configure and start Docker on Mac check [here](https://docs.docker.com/docker-for-mac/install/). 
 
 
 ### Hardware Requirements:
-There is no specific hardware requirement to run this example.
+There is no specific hardware requirement to run this example. If Docker and Gitbash are installed successfully then most probably this example should run.
 
 
 ## Step 1: Clone the projects
