@@ -13,14 +13,19 @@ The cpu-ex is short for CPU-Example. It is called CPU-ex because it utilizes CPU
 Before starting make sure that you meet the software and hardware requirement.
 
 ### Software Requirements:
-#### On Windows
+#### Windows:
 On Windows operating system, you need to have
-1. Docker
-2. Gitbash
+##### Docker
+Docker is a free software. To download, install, configure and test it on windows check [here](https://hub.docker.com/editions/community/docker-ce-desktop-windows).
+##### Gitbash
+Gitbash is another free lightweight tool that provides a BASH emulation to run git from the command line. To download gitbash for windows click [here](https://gitforwindows.org/).
 
-#### On Linux and Mac
+#### Linux and Mac:
 On both Linux and Mac, all you need is docker installed and running.
-1. Docker
+##### Docker
+To install Docker on Linux check [here](https://docs.docker.com/get-docker/).   
+To install Docker on Mac check [here](https://docs.docker.com/docker-for-mac/install/)
+
 
 ### Hardware Requirements:
 There is no specific hardware requirement to run this example.
