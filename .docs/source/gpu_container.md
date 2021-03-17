@@ -11,15 +11,19 @@ Before starting make sure that you meet the software and hardware requirement.
 ### Software Requirements:
 #### On Linux
 On Linux, the software you need are.
-1. Docker
-1. NVIDIA driver 
-1. NVIDIA Container runtime
+##### Docker
+To install Docker on Linux check [here](https://docs.docker.com/get-docker/).   
+##### NVIDIA driver 
+You must have NVIDIA driver installed on the host machine according to the GPU on your computer. To find the compatible GPU click [here](https://www.nvidia.co.uk/Download/index.aspx?lang=en-uk).
+##### NVIDIA Container runtime
+The nvidia-container-runtime is an open-source tool that is needed by docker to use the hosts machine GPU. To check nvidia-container-runtime is installed on Linux run the following command.
+```
+nvidia-container-cli info
+```
+If it is not present then download and install from [here](https://github.com/NVIDIA/nvidia-container-runtime).    
 
-#### On Windows
-Sharing GPU of host computer with docker is not possible on Windows yet. So do not run this example on Windows computer.
-
-#### On Mac
-Sharing GPU of host computer with docker is not possible on Mac yet. So do not run this example on Mac computer.
+#### On Windows and Mac
+Sharing GPU of host computer with docker is not possible on Windows and Mac till now. Therefore, this example and any GPU based application could not be run on Windows and Mac.
 
 ### Hardware Requirements:
 Make sure that you have GPU present on the Computer running docker.
