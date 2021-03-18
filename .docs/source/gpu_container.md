@@ -3,8 +3,7 @@ This is a hands on demo tutorial, showing how scikit-surgerydocker package could
 In this demo we are dockerizing [stereo-recon-example](https://weisslab.cs.ucl.ac.uk/ThomasDowrick/stereo-recon-example) program that needs a GPU on the host computer (computer running docker) and Nvidia Driver installed.
 
 ## About stereo-recon-example program:
-The program is modifed code of [keras-flask-deploy-webapp](https://github.com/mtobeiyf/keras-flask-deploy-webapp) to make it work with the PSMNet model, and predict disparity maps from left/right images.
-
+The program is modified code of [keras-flask-deploy-webapp](https://github.com/mtobeiyf/keras-flask-deploy-webapp) to make it work with the PSMNet model, and predict disparity maps from left/right images.
 
 ## Preliminary requirements:
 Before starting make sure that you meet the software and hardware requirement.
@@ -14,22 +13,19 @@ On Linux, the software you need are.
 ##### Docker
 To install Docker on Linux check [here](https://docs.docker.com/get-docker/).   
 ##### NVIDIA driver 
-You must have NVIDIA driver installed on the host machine according to the GPU on your computer. To find the compatible GPU click [here](https://www.nvidia.co.uk/Download/index.aspx?lang=en-uk).
+You must have NVIDIA driver installed on the host machine according to the GPU model on your computer. To find the compatible NVIDIA and GPU click [here](https://www.nvidia.co.uk/Download/index.aspx?lang=en-uk).
 ##### NVIDIA Container runtime
-The nvidia-container-runtime is an open-source tool that is needed by docker to use the hosts machine GPU. To check nvidia-container-runtime is installed on Linux run the following command.
+The nvidia-container-runtime is an open-source tool that is needed by docker to use the hosts machine GPU. Run the following command to check whether nvidia-container-runtime is installed.
 ```
 nvidia-container-cli info
 ```
-If it is not present then download and install from [here](https://github.com/NVIDIA/nvidia-container-runtime).    
+If it is not installed then download and install it from [here](https://github.com/NVIDIA/nvidia-container-runtime).    
 
 #### On Windows and Mac
-Sharing GPU of host computer with docker is not possible on Windows and Mac till now. Therefore, this example and any GPU based application could not be run on Windows and Mac.
+Sharing GPU of host computer with docker is not possible on Windows and Mac till now. Therefore, this example will not work on Windows and Mac.
 
 ### Hardware Requirements:
-Make sure that you have GPU present on the Computer running docker.
-
-
-
+Make sure that GPU is available on the Computer running docker.
 
 
 ## Step 0: Prepare the docker host
