@@ -151,7 +151,7 @@ cat output_file.txt
 
 ## Step 8: Clean the environment (Optional)
 
-To delete all the containers and images on the computer to free-up space run the following commands
+To delete all the containers and images on the computer to free-up space run the following commands.
 
 **NOTE:** The following commands will delete all the images and containers so if you have any existing images or containers that you do not want to delete then do not run these commands.
 
