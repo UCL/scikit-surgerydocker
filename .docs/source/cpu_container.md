@@ -139,8 +139,7 @@ docker ps -a
 
 Check the status column, which is now in status `Exited`, as the container exits after the script has been run. In our case, its job was to read text from input file and append text with it and write to an output file.
 
-
-## Step 7: Checking the output
+## Step 7: Checking the output
 
 To verify the processing performed in the container after executing the above run command. On docker host
 
