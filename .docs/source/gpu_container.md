@@ -41,7 +41,7 @@ To clone scikit-surgerydocker:
 ```
 git clone https://github.com/UCL/scikit-surgerydocker.git
 ```
-To clone the project to containerise:
+To clone the project to containerize:
 ```
 git clone --recursive https://weisslab.cs.ucl.ac.uk/ThomasDowrick/stereo-recon-example
 ```
@@ -75,7 +75,7 @@ Since this application needs data from front-end (web interface) therefore no ne
 
 ## Step 4: Containerize the application
 
-To containerise the project a `Dockerfile` is provided in the scikit-surgerydocker. The Dockerfile uses `nvidia/cuda:11.1.1-devel-ubuntu18.04` i.e. Ubuntu 18.04 as base operating system along with Nvidia and Cuda software. On the base image Python 3.6.9 and pip 3 is installed. The pip utility is used to install the packages required by the app and mentioned in the requirements.txt. Please read the `Dockerfile` in the repo for further information. Feel free to modify the `Dockerfile` according to your environment.
+To containerize the project a `Dockerfile` is provided in the scikit-surgerydocker. The Dockerfile uses `nvidia/cuda:11.1.1-devel-ubuntu18.04` i.e. Ubuntu 18.04 as base operating system along with Nvidia and CUDA software. On the base image Python 3.6.9 and pip 3 is installed. The pip utility is used to install the packages required by the app and mentioned in the requirements.txt. Please read the `Dockerfile` in the repo for further information. Feel free to modify the `Dockerfile` according to your environment.
 
 This particular example needs `ffmpeg, libsm6, libxext6` libraries installed in the Ubuntu 18.04, so you can install them in the image by adding the following line in `# OS level dependencies` section of the Dockerfile.
 ```
@@ -98,7 +98,7 @@ cd scikit-surgerydocker
 docker build -t my-project-2 .
 ```
 
-**Note:** Dont forget the trailing . (dot) at the end of the above command.
+**Note:** Do not forget the trailing . (dot) at the end of the above command.
 
 Run the following command to check that your docker image is created.
 This command will show all the docker images you have on your docker host including the newly created `my-project-2` Docker image.
@@ -128,8 +128,24 @@ In the above command,
 
 `--gpus all` will use all the installed physical gpus used for running the application.
 
-**NOTE:** The docker container will exit after running the app.py script. It is normal for docker to stop the conainer automatically after executing the job.
+**NOTE:** The docker container will exit after running the app.py script. It is normal for docker to stop the container automatically after executing the job.
 
 ## Step 6: Access the front-end
 
 If everything is working then after executing the command in step 5 the application should up and running. To access the application front-end, open the browser and go to address http://127.0.0.1:5000
+
+## Step 7: Clean the environment (Optional)
+
+To delete all the containers and images on the computer to free-up space run the following commands.
+
+**NOTE:** The following commands will delete all the images and containers so if you have any existing images or containers that you do not want to delete then do not run these commands.
+
+To delete all the containers
+```
+docker rm -f $(docker ps -a -q)
+```
+
+To delete all the images 
+```
+docker rmi -f $(docker images -a -q)
+```

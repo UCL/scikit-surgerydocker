@@ -153,6 +153,8 @@ cat output_file.txt
 
 To delete all the containers and images on the computer to free-up space run the following commands
 
+**NOTE:** The following commands will delete all the images and containers so if you have any existing images or containers that you do not want to delete then do not run these commands.
+
 To delete all the containers
 ```
 docker rm -f $(docker ps -a -q)
