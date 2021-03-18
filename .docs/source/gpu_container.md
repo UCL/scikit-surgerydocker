@@ -27,18 +27,6 @@ Sharing GPU of host computer with docker is not possible on Windows and Mac till
 ### Hardware Requirements:
 Make sure that GPU is available on the Computer running docker.
 
-
-## Step 0: Prepare the docker host
-Docker host is the machine on which the docker is installed. To run the GPU program in docker you need to install [nvidia-container-runtime](https://nvidia.github.io/nvidia-container-runtime/). 
-The steps for debian based distribution are
-```
-curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
-curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
-
-sudo apt-get update && sudo apt-get install -y nvidia-container-toolkit
-sudo systemctl restart docker
-```
-
 ## Step 1: Clone the projects
 First step is to clone both the projects.
 
