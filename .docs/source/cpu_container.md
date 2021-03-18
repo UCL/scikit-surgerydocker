@@ -150,3 +150,16 @@ cd output_data
 cat output_file.txt
 ```
 
+# Step 8: Clean the environment (Optional)
+
+To delete all the containers and images on the computer to free-up space run the following commands
+
+To delete all the containers
+```
+docker rm -f $(docker ps -a -q)
+```
+
+To delete all the images 
+```
+docker rmi -f $(docker images -a -q)
+```
