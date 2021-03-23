@@ -149,7 +149,50 @@ cd output_data
 cat output_file.txt
 ```
 
-## Step 8: Clean the environment (Optional)
+## Step 8: Upload image to dockerhub
+To share the newly created docker image `myproject` we could make use of free service dockerhub. Following are the steps to upload the docker image to to dockerhub.
+
+### Compress image:
+The following command will create a compressed `.tar` file of the image in the current directory by the name `my-project.tar`.
+```
+docker save my-project > my-project.tar
+```
+
+### Upload to dockerhub
+
+One of the docker registries where you can upload your created and compressed image `my-project.tar` is [docker hub](https://hub.docker.com/). You need to have an account on the dockerhub. To sign up to docker hub visit [here](https://hub.docker.com/signup).
+
+1. Create a free account in docker hub.
+2. Login to docker hub account online.
+3. Create a repository
+   1. Give a name (e.g. new-user-1)
+   2. Give a description
+   3. Click Create.
+4. Now on docker host login to your docker hub account from terminal by the following command and providing the password when requested.
+
+```
+docker login --username=yourgithubusername --email=youremail@company.com
+```
+
+5. Now you need to tag your image with your docker hub ID.
+   1. To tag the image, first you need to find the image ID.
+   2. After finding the ID you can tag the image
+
+```
+# To find the ID of your image run command
+docker images
+
+# To tag the image with your docker hub username
+docker tag <image id found in step 1> yourgithubusername/my-project
+```
+
+6. Now you can upload the tagged image to docker hub. It will take time in uploading depending on the size of the image.
+
+```
+docker push yourgithubusername/my-project:latest
+```
+
+## Step 9: Clean the environment (Optional)
 
 To delete all the containers and images on the computer to free-up space run the following commands.
 

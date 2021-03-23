@@ -1,6 +1,6 @@
 # How to package your image for sharing
 
-If you would like to submit your docker image containing your Python application to a challange then this can be achieved in two common ways:
+If you would like to submit your docker image containing your Python application to a challenge then this can be achieved in two common ways:
 
 ## Compress the image and upload it to cloud drive
 
