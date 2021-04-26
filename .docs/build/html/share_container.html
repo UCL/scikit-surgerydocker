@@ -13,6 +13,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/tabs.css" type="text/css" />
 
   
   
@@ -82,11 +83,16 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setting up Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">What is scikit-surgerydocker?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpu_container.html">Dockerizing a CPU program:</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gpu_container.html">Dockerizing a GPU program:</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">How to package your image for sharing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#compress-the-image-and-upload-it-to-cloud-drive">Compress the image and upload it to cloud drive</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#upload-it-docker-hub">Upload it docker hub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#upload-image-to-dockerhub">Upload image to dockerhub</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#compress-image">Compress image:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#upload-to-dockerhub">Upload to dockerhub</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -156,49 +162,53 @@
             
   <div class="section" id="how-to-package-your-image-for-sharing">
 <h1>How to package your image for sharing<a class="headerlink" href="#how-to-package-your-image-for-sharing" title="Permalink to this headline">¶</a></h1>
-<p>If you would like to submit your docker image containing your Python application to a challange then this can be achieved in two common ways:</p>
-<div class="section" id="compress-the-image-and-upload-it-to-cloud-drive">
-<h2>Compress the image and upload it to cloud drive<a class="headerlink" href="#compress-the-image-and-upload-it-to-cloud-drive" title="Permalink to this headline">¶</a></h2>
-<p>This following command will create the compressed <code class="docutils literal notranslate"><span class="pre">tar</span></code> file of the image in the current directory by the name <code class="docutils literal notranslate"><span class="pre">my-project-team1.tar</span></code>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># You dont need to be in scikit-surgerydocker directory to do this.</span>
-<span class="c1"># The following command will work from any where in docker host</span>
-
-<span class="n">docker</span> <span class="n">save</span> <span class="n">my</span><span class="o">-</span><span class="n">project</span><span class="p">:</span><span class="n">team1</span> <span class="o">&gt;</span> <span class="n">my</span><span class="o">-</span><span class="n">project</span><span class="o">-</span><span class="n">team1</span><span class="o">.</span><span class="n">tar</span>
+<p>If you would like to submit your docker image containing your Python application to a challenge then you have to upload it to a cloud:</p>
+<div class="section" id="upload-image-to-dockerhub">
+<h2>Upload image to dockerhub<a class="headerlink" href="#upload-image-to-dockerhub" title="Permalink to this headline">¶</a></h2>
+<p>To share the newly created docker image <code class="docutils literal notranslate"><span class="pre">my-project</span></code> we could make use of free service dockerhub. Following are the steps to upload the docker image to to dockerhub.</p>
+<div class="section" id="compress-image">
+<h3>Compress image:<a class="headerlink" href="#compress-image" title="Permalink to this headline">¶</a></h3>
+<p>The following command will create a compressed <code class="docutils literal notranslate"><span class="pre">.tar</span></code> file of the image in the current directory by the name <code class="docutils literal notranslate"><span class="pre">my-project.tar</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">save</span> <span class="n">my</span><span class="o">-</span><span class="n">project</span> <span class="o">&gt;</span> <span class="n">my</span><span class="o">-</span><span class="n">project</span><span class="o">.</span><span class="n">tar</span>
 </pre></div>
 </div>
-<p>Now you can upload this tar file to the cloud drive (Google drive, Drop box, One drive etc) and you can share it with any one you want.</p>
 </div>
-<div class="section" id="upload-it-docker-hub">
-<h2>Upload it docker hub<a class="headerlink" href="#upload-it-docker-hub" title="Permalink to this headline">¶</a></h2>
-<p>One of the docker registries where you can upload your created image <code class="docutils literal notranslate"><span class="pre">my-project</span></code> is <a class="reference external" href="https://hub.docker.com/">docker hub</a>.</p>
+<div class="section" id="upload-to-dockerhub">
+<h3>Upload to dockerhub<a class="headerlink" href="#upload-to-dockerhub" title="Permalink to this headline">¶</a></h3>
+<p>One of the docker registries where you can upload your created and compressed image <code class="docutils literal notranslate"><span class="pre">my-project.tar</span></code> is <a class="reference external" href="https://hub.docker.com/">docker hub</a>. You need to have an account on the dockerhub. To sign up to docker hub visit <a class="reference external" href="https://hub.docker.com/signup">here</a>.</p>
 <ol class="simple">
-<li><p>Create a free account in docker hub.</p></li>
+<li><p>Create a free account on docker hub.</p></li>
 <li><p>Login to docker hub account online.</p></li>
 <li><p>Create a repository</p>
 <ol class="simple">
-<li><p>Give a name (e.g. new-user-1)</p></li>
+<li><p>Give a name, better to give same name as image name e.g. <code class="docutils literal notranslate"><span class="pre">my-project</span></code> in our case.</p></li>
 <li><p>Give a description</p></li>
 <li><p>Click Create.</p></li>
 </ol>
 </li>
 <li><p>Now on docker host login to your docker hub account from terminal by the following command and providing the password when requested.</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">login</span> <span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="n">yourgithubusername</span> <span class="o">--</span><span class="n">email</span><span class="o">=</span><span class="n">youremail</span><span class="nd">@company</span><span class="o">.</span><span class="n">com</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># There are multiple ways to provide the password. I am using the environment variable one.</span>
+<span class="c1"># First you need to create an environment variable and assign your password </span>
+<span class="n">MY_PASSWORD</span><span class="o">=</span><span class="s2">&quot;give_your_password&quot;</span>
+
+<span class="c1"># Now run the following command to login to docker hub from terminal</span>
+<span class="n">echo</span> <span class="s2">&quot;$MY_PASSWORD&quot;</span> <span class="o">|</span> <span class="n">docker</span> <span class="n">login</span> <span class="o">--</span><span class="n">username</span> <span class="o">&lt;</span><span class="n">username</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">password</span><span class="o">-</span><span class="n">stdin</span>
 </pre></div>
 </div>
 <ol class="simple">
-<li><p>Now you need to tag your image with your docker hub ID.</p>
+<li><p>Now you need to tag your image with your docker hub login name.</p>
 <ol class="simple">
-<li><p>To tag the image, first you need to find the image ID.</p></li>
+<li><p>To tag the image, you need to know the image name</p></li>
 <li><p>After finding the ID you can tag the image</p></li>
 </ol>
 </li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># To find the ID of your image run command</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># To find the image name list all the images</span>
 <span class="n">docker</span> <span class="n">images</span>
 
-<span class="c1"># To tag the image with your docker hub username</span>
-<span class="n">docker</span> <span class="n">tag</span> <span class="o">&lt;</span><span class="n">image</span> <span class="nb">id</span> <span class="n">found</span> <span class="ow">in</span> <span class="n">step</span> <span class="mi">1</span><span class="o">&gt;</span> <span class="n">yourgithubusername</span><span class="o">/</span><span class="n">my</span><span class="o">-</span><span class="n">project</span><span class="p">:</span><span class="n">team1</span>
+<span class="c1"># To tag the image with your docker hub login name</span>
+<span class="n">docker</span> <span class="n">tag</span> <span class="n">my</span><span class="o">-</span><span class="n">project</span> <span class="n">yourdockerhubaccount</span><span class="o">/</span><span class="n">my</span><span class="o">-</span><span class="n">project</span>
 </pre></div>
 </div>
 <ol class="simple">
@@ -206,6 +216,8 @@
 </ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">push</span> <span class="n">yourgithubusername</span><span class="o">/</span><span class="n">my</span><span class="o">-</span><span class="n">project</span><span class="p">:</span><span class="n">latest</span>
 </pre></div>
+</div>
+<p>Now you can verify the image online in your dockerhub account.</p>
 </div>
 </div>
 </div>
