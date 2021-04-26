@@ -13,6 +13,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/tabs.css" type="text/css" />
 
   
   
@@ -83,9 +84,32 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setting up Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">What is scikit-surgerydocker?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpu_container.html">Dockerizing a CPU program:</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Dockerizing a GPU program:</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#about-stereo-recon-example-program">About stereo-recon-example program:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#preliminary-requirements">Preliminary requirements:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#software-requirements">Software Requirements:</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#on-linux">On Linux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#on-windows-and-mac">On Windows and Mac</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#hardware-requirements">Hardware Requirements:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#step-1-clone-the-projects">Step 1: Clone the projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-2-copy-the-code">Step 2: Copy the code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-3-copy-the-input-data">Step 3: Copy the input data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-4-containerize-the-application">Step 4: Containerize the application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-5-execution-of-image">Step 5: Execution of image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-6-access-the-front-end">Step 6: Access the front-end</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-7-upload-image-to-dockerhub">Step 7: Upload image to dockerhub</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#compress-image">Compress image:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#upload-to-dockerhub">Upload to dockerhub</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#step-8-clean-the-environment-optional">Step 8: Clean the environment (Optional)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="share_container.html">How to package your image for sharing</a></li>
@@ -157,9 +181,210 @@
   <div class="section" id="dockerizing-a-gpu-program">
 <h1>Dockerizing a GPU program:<a class="headerlink" href="#dockerizing-a-gpu-program" title="Permalink to this headline">¶</a></h1>
 <p>This is a hands on demo tutorial, showing how scikit-surgerydocker package could be used to dockerize the Python application.
-In this demo we are dockerizing <a class="reference external" href="https://weisslab.cs.ucl.ac.uk/ThomasDowrick/stereo-recon-example">stereo-recon-example</a> program.</p>
+In this demo we are dockerizing <a class="reference external" href="https://weisslab.cs.ucl.ac.uk/ThomasDowrick/stereo-recon-example">stereo-recon-example</a> program that needs a GPU on the host computer (computer running docker) and Nvidia Driver installed.</p>
 <div class="section" id="about-stereo-recon-example-program">
 <h2>About stereo-recon-example program:<a class="headerlink" href="#about-stereo-recon-example-program" title="Permalink to this headline">¶</a></h2>
+<p>The program is modified code of <a class="reference external" href="https://github.com/mtobeiyf/keras-flask-deploy-webapp">keras-flask-deploy-webapp</a> to make it work with the PSMNet model, and predict disparity maps from left/right images.</p>
+</div>
+<div class="section" id="preliminary-requirements">
+<h2>Preliminary requirements:<a class="headerlink" href="#preliminary-requirements" title="Permalink to this headline">¶</a></h2>
+<p>Before starting make sure that you meet the software and hardware requirement.</p>
+<div class="section" id="software-requirements">
+<h3>Software Requirements:<a class="headerlink" href="#software-requirements" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="on-linux">
+<h4>On Linux<a class="headerlink" href="#on-linux" title="Permalink to this headline">¶</a></h4>
+<p>On Linux, the software you need are.</p>
+<div class="section" id="docker">
+<h5>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h5>
+<p>To install Docker on Linux check <a class="reference external" href="https://docs.docker.com/get-docker/">here</a>.</p>
+</div>
+<div class="section" id="nvidia-driver">
+<h5>NVIDIA driver<a class="headerlink" href="#nvidia-driver" title="Permalink to this headline">¶</a></h5>
+<p>You must have NVIDIA driver installed on the host machine according to the GPU model on your computer. To find the compatible NVIDIA and GPU click <a class="reference external" href="https://www.nvidia.co.uk/Download/index.aspx?lang=en-uk">here</a>.</p>
+</div>
+<div class="section" id="nvidia-container-runtime">
+<h5>NVIDIA Container runtime<a class="headerlink" href="#nvidia-container-runtime" title="Permalink to this headline">¶</a></h5>
+<p>The nvidia-container-runtime is an open-source tool that is needed by docker to use the hosts machine GPU. Run the following command to check whether nvidia-container-runtime is installed.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nvidia</span><span class="o">-</span><span class="n">container</span><span class="o">-</span><span class="n">cli</span> <span class="n">info</span>
+</pre></div>
+</div>
+<p>If it is not installed then download and install it from <a class="reference external" href="https://github.com/NVIDIA/nvidia-container-runtime">here</a>.</p>
+</div>
+</div>
+<div class="section" id="on-windows-and-mac">
+<h4>On Windows and Mac<a class="headerlink" href="#on-windows-and-mac" title="Permalink to this headline">¶</a></h4>
+<p>Sharing GPU of host computer with docker is not possible on Windows and Mac till now. Therefore, this example will not work on Windows and Mac.</p>
+</div>
+</div>
+<div class="section" id="hardware-requirements">
+<h3>Hardware Requirements:<a class="headerlink" href="#hardware-requirements" title="Permalink to this headline">¶</a></h3>
+<p>Make sure that GPU is available on the Computer running docker.</p>
+</div>
+</div>
+<div class="section" id="step-1-clone-the-projects">
+<h2>Step 1: Clone the projects<a class="headerlink" href="#step-1-clone-the-projects" title="Permalink to this headline">¶</a></h2>
+<p>First step is to clone both the projects.</p>
+<p>It is recommended to create a new directory.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make temp directory</span>
+<span class="n">mkdir</span> <span class="n">temp</span>
+<span class="c1"># Change directory to temp</span>
+<span class="n">cd</span> <span class="n">temp</span>
+</pre></div>
+</div>
+<p>To clone scikit-surgerydocker:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">UCL</span><span class="o">/</span><span class="n">scikit</span><span class="o">-</span><span class="n">surgerydocker</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>To clone the project to containerize:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="o">--</span><span class="n">recursive</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">weisslab</span><span class="o">.</span><span class="n">cs</span><span class="o">.</span><span class="n">ucl</span><span class="o">.</span><span class="n">ac</span><span class="o">.</span><span class="n">uk</span><span class="o">/</span><span class="n">ThomasDowrick</span><span class="o">/</span><span class="n">stereo</span><span class="o">-</span><span class="n">recon</span><span class="o">-</span><span class="n">example</span>
+</pre></div>
+</div>
+<p>Now the temp directory will have the following structure</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.
+├── scikit-surgerydocker
+|   ├── input_data
+|   ├── output_data
+|   └── src
+└── stereo-recon-example
+    ├── PSMNet
+    │   ├── dataloader
+    │   ├── dataset
+    │   ├── models
+    │   ├── trained_models
+    │   └── utils
+    ├── data
+    │   └── synthetic
+    │       └── calib
+    ├── static
+    └── templates
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-2-copy-the-code">
+<h2>Step 2: Copy the code<a class="headerlink" href="#step-2-copy-the-code" title="Permalink to this headline">¶</a></h2>
+<p>Second step is to copy the application/algorithm code from your project (stereo-recon-example) to scikit-surgerydocker</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cp</span> <span class="o">-</span><span class="n">r</span> <span class="n">stereo</span><span class="o">-</span><span class="n">recon</span><span class="o">-</span><span class="n">example</span><span class="o">/*</span> <span class="n">scikit</span><span class="o">-</span><span class="n">surgerydocker</span><span class="o">/</span><span class="n">src</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-3-copy-the-input-data">
+<h2>Step 3: Copy the input data<a class="headerlink" href="#step-3-copy-the-input-data" title="Permalink to this headline">¶</a></h2>
+<p>Since this application needs data from front-end (web interface) therefore no need of specifying input data here. So no action needed here.</p>
+</div>
+<div class="section" id="step-4-containerize-the-application">
+<h2>Step 4: Containerize the application<a class="headerlink" href="#step-4-containerize-the-application" title="Permalink to this headline">¶</a></h2>
+<p>To containerize the project a <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> is provided in the scikit-surgerydocker. The Dockerfile uses <code class="docutils literal notranslate"><span class="pre">nvidia/cuda:11.1.1-devel-ubuntu18.04</span></code> i.e. Ubuntu 18.04 as base operating system along with Nvidia and CUDA software. On the base image Python 3.6.9 and pip 3 is installed. The pip utility is used to install the packages required by the app and mentioned in the requirements.txt. Please read the <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> in the repo for further information. Feel free to modify the <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> according to your environment.</p>
+<p>This particular example needs <code class="docutils literal notranslate"><span class="pre">ffmpeg,</span> <span class="pre">libsm6,</span> <span class="pre">libxext6</span></code> libraries installed in the Ubuntu 18.04, so you can install them in the image by adding the following line in <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">OS</span> <span class="pre">level</span> <span class="pre">dependencies</span></code> section of the Dockerfile.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Open the Dockerfile stored in scikit-surgerydocker</span>
+<span class="n">cd</span> <span class="n">scikit</span><span class="o">-</span><span class="n">surgerydocker</span>
+<span class="n">nano</span> <span class="n">Dockerfile</span>
+
+<span class="c1"># Uncomment the following line (remove # at the start of the line.)</span>
+<span class="n">RUN</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">ffmpeg</span> <span class="n">libsm6</span> <span class="n">libxext6</span> <span class="o">-</span><span class="n">y</span>
+
+<span class="c1"># Save the changes and exit.</span>
+</pre></div>
+</div>
+<p>Run the following command to create a docker image with the name <code class="docutils literal notranslate"><span class="pre">my-project-2</span></code>.<br /><strong>Note:</strong> The following command will only work if you are in the directory where the <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> is saved. In our case <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> is in the `scikit-surgerydocker/’ root directory.
+<strong>Note:</strong> Please also make sure that <a class="reference external" href="https://docs.docker.com/engine/">Docker</a> is installed and docker engine is running before executing the following command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">scikit</span><span class="o">-</span><span class="n">surgerydocker</span>
+<span class="n">docker</span> <span class="n">build</span> <span class="o">-</span><span class="n">t</span> <span class="n">my</span><span class="o">-</span><span class="n">project</span><span class="o">-</span><span class="mi">2</span> <span class="o">.</span>
+</pre></div>
+</div>
+<p><strong>Note:</strong> Do not forget the trailing . (dot) at the end of the above command.</p>
+<p>Run the following command to check that your docker image is created.
+This command will show all the docker images you have on your docker host including the newly created <code class="docutils literal notranslate"><span class="pre">my-project-2</span></code> Docker image.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">images</span>
+</pre></div>
+</div>
+<p>The newly created <code class="docutils literal notranslate"><span class="pre">my-project-2</span></code> image will have the Python version “3.6.9” specified in the <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> and the dependencies installed and finally the source code.</p>
+</div>
+<div class="section" id="step-5-execution-of-image">
+<h2>Step 5: Execution of image<a class="headerlink" href="#step-5-execution-of-image" title="Permalink to this headline">¶</a></h2>
+<p>After you have containerized your Python application, you can run it on your computer for testing before sharing with others.</p>
+<p>The following command will create a new <code class="docutils literal notranslate"><span class="pre">container</span></code> from image <code class="docutils literal notranslate"><span class="pre">my-project-2</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">scikit</span><span class="o">-</span><span class="n">surgerydocker</span>
+<span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">p</span> <span class="mi">5000</span><span class="p">:</span><span class="mi">5000</span> <span class="o">--</span><span class="n">gpus</span> <span class="nb">all</span> <span class="n">my</span><span class="o">-</span><span class="n">project</span><span class="o">-</span><span class="mi">2</span> 
+</pre></div>
+</div>
+<p>In the above command,<br /><code class="docutils literal notranslate"><span class="pre">my-project-2</span></code> is the docker image name.</p>
+<p><code class="docutils literal notranslate"><span class="pre">-p</span> <span class="pre">5000:5000</span></code> will expose port 5000 inside the container to port 5000 of the docker host.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--gpus</span> <span class="pre">all</span></code> will use all the installed physical gpus used for running the application.</p>
+<p><strong>NOTE:</strong> The docker container will exit after running the app.py script. It is normal for docker to stop the container automatically after executing the job.</p>
+</div>
+<div class="section" id="step-6-access-the-front-end">
+<h2>Step 6: Access the front-end<a class="headerlink" href="#step-6-access-the-front-end" title="Permalink to this headline">¶</a></h2>
+<p>If everything is working then after executing the command in step 5 the application should up and running. To access the application front-end, open the browser and go to address http://127.0.0.1:5000</p>
+</div>
+<div class="section" id="step-7-upload-image-to-dockerhub">
+<h2>Step 7: Upload image to dockerhub<a class="headerlink" href="#step-7-upload-image-to-dockerhub" title="Permalink to this headline">¶</a></h2>
+<p>To share the newly created docker image <code class="docutils literal notranslate"><span class="pre">my-project</span></code> we could make use of free service dockerhub. Following are the steps to upload the docker image to to dockerhub.</p>
+<div class="section" id="compress-image">
+<h3>Compress image:<a class="headerlink" href="#compress-image" title="Permalink to this headline">¶</a></h3>
+<p>The following command will create a compressed <code class="docutils literal notranslate"><span class="pre">.tar</span></code> file of the image in the current directory by the name <code class="docutils literal notranslate"><span class="pre">my-project.tar</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">save</span> <span class="n">my</span><span class="o">-</span><span class="n">project</span> <span class="o">&gt;</span> <span class="n">my</span><span class="o">-</span><span class="n">project</span><span class="o">.</span><span class="n">tar</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="upload-to-dockerhub">
+<h3>Upload to dockerhub<a class="headerlink" href="#upload-to-dockerhub" title="Permalink to this headline">¶</a></h3>
+<p>One of the docker registries where you can upload your created and compressed image <code class="docutils literal notranslate"><span class="pre">my-project.tar</span></code> is <a class="reference external" href="https://hub.docker.com/">docker hub</a>. You need to have an account on the dockerhub. To sign up to docker hub visit <a class="reference external" href="https://hub.docker.com/signup">here</a>.</p>
+<ol class="simple">
+<li><p>Create a free account on docker hub.</p></li>
+<li><p>Login to docker hub account online.</p></li>
+<li><p>Create a repository</p>
+<ol class="simple">
+<li><p>Give a name, better to give same name as image name e.g. <code class="docutils literal notranslate"><span class="pre">my-project</span></code> in our case.</p></li>
+<li><p>Give a description</p></li>
+<li><p>Click Create.</p></li>
+</ol>
+</li>
+<li><p>Now on docker host login to your docker hub account from terminal by the following command and providing the password when requested.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># There are multiple ways to provide the password. I am using the environment variable one.</span>
+<span class="c1"># First you need to create an environment variable and assign your password </span>
+<span class="n">MY_PASSWORD</span><span class="o">=</span><span class="s2">&quot;give_your_password&quot;</span>
+
+<span class="c1"># Now run the following command to login to docker hub from terminal</span>
+<span class="n">echo</span> <span class="s2">&quot;$MY_PASSWORD&quot;</span> <span class="o">|</span> <span class="n">docker</span> <span class="n">login</span> <span class="o">--</span><span class="n">username</span> <span class="o">&lt;</span><span class="n">username</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">password</span><span class="o">-</span><span class="n">stdin</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Now you need to tag your image with your docker hub login name.</p>
+<ol class="simple">
+<li><p>To tag the image, you need to know the image name</p></li>
+<li><p>After finding the ID you can tag the image</p></li>
+</ol>
+</li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># To find the image name list all the images</span>
+<span class="n">docker</span> <span class="n">images</span>
+
+<span class="c1"># To tag the image with your docker hub login name</span>
+<span class="n">docker</span> <span class="n">tag</span> <span class="n">my</span><span class="o">-</span><span class="n">project</span> <span class="n">yourdockerhubaccount</span><span class="o">/</span><span class="n">my</span><span class="o">-</span><span class="n">project</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Now you can upload the tagged image to docker hub. It will take time in uploading depending on the size of the image.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">push</span> <span class="n">yourgithubusername</span><span class="o">/</span><span class="n">my</span><span class="o">-</span><span class="n">project</span><span class="p">:</span><span class="n">latest</span>
+</pre></div>
+</div>
+<p>Now you can verify the image online in your dockerhub account.</p>
+</div>
+</div>
+<div class="section" id="step-8-clean-the-environment-optional">
+<h2>Step 8: Clean the environment (Optional)<a class="headerlink" href="#step-8-clean-the-environment-optional" title="Permalink to this headline">¶</a></h2>
+<p>To delete all the containers and images on the computer to free-up space run the following commands.</p>
+<p><strong>NOTE:</strong> The following commands will delete all the images and containers so if you have any existing images or containers that you do not want to delete then do not run these commands.</p>
+<p>To delete all the containers</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>docker rm -f $(docker ps -a -q)
+</pre></div>
+</div>
+<p>To delete all the images</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>docker rmi -f $(docker images -a -q)
+</pre></div>
+</div>
 </div>
 </div>
 

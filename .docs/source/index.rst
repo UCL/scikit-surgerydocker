@@ -5,6 +5,7 @@ Welcome to scikit-surgerydocker's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   setup
    introduction
    cpu_container
    gpu_container

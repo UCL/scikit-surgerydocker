@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Search &mdash; scikit-surgerydocker 0.0.1 documentation</title>
+  <title>What is scikit-surgerydocker? &mdash; scikit-surgerydocker 0.0.1 documentation</title>
   
 
   
@@ -21,7 +21,6 @@
   
 
   
-    
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -31,14 +30,14 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/tabs.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-    <script type="text/javascript" src="_static/searchtools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Dockerizing a CPU program:" href="cpu_container.html" />
+    <link rel="prev" title="Setting up Docker" href="setup.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -65,7 +64,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -84,9 +83,9 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Setting up Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">What is scikit-surgerydocker?</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">What is scikit-surgerydocker?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpu_container.html">Dockerizing a CPU program:</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gpu_container.html">Dockerizing a GPU program:</a></li>
 <li class="toctree-l1"><a class="reference internal" href="share_container.html">How to package your image for sharing</a></li>
@@ -136,12 +135,14 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Search</li>
+      <li>What is scikit-surgerydocker?</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/introduction.md.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -153,23 +154,41 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search functionality.
-    </p>
-  </div>
-  </noscript>
+  <div class="section" id="what-is-scikit-surgerydocker">
+<h1>What is scikit-surgerydocker?<a class="headerlink" href="#what-is-scikit-surgerydocker" title="Permalink to this headline">¶</a></h1>
+<p>Scikit-srugerydocker is a template project that containerize (create docker image) of Python project/algorithm. It specify the steps of how to share the project image with the world freely. It further explains how other users can download and execute image locally on their computer with same or different dataset.</p>
+<p>If your project/algorithm is like any usual program i.e. it receives input data, process it and produce output (as shown in the directory tree below) then you can use scikit-surgerydocker to containerize it for easy sharing and reproducibility.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.
+├── input_data
+│   ├── file-1
+│   ├── file-2
+│   └── file-n
+├── output_data
+│   ├── result-1
+│   ├── result-2
+│   └── result-n
+└── src
+    └── application.py
+</pre></div>
+</div>
+<p>To give a better idea of how it works, the documentation describes containerization of two example projects. First example shows a CPU program (<a class="reference external" href="https://github.com/UCL/cpu-ex">cpu-ex</a>) and the second example shows a GPU program (<a class="reference external" href="https://weisslab.cs.ucl.ac.uk/ThomasDowrick/stereo-recon-example">stereo-recon-example</a>). The documentation also explains how you can compress and upload your newly created docker images to a docker registry (dockerhub) for sharing with community without any cost.</p>
+<p>A related project <a class="reference external" href="https://github.com/UCL/scikit-surgerychallenge">scikit-surgerychallenge</a> is also under development which will be used to download the docker image from the docker registry (dockerhub) and run it with different dataset. This can be particularly useful for evaluating efficiency (benchmarking) of containerized algorithm under constant condition like fixed hardware resource (RAM size, CPU, Number and type of GPU’s) and under specified time interval. Together the scikit-surgerydocker and scikit-surgerychallenge can be used to host research challenges.</p>
+</div>
 
-  
-  <div id="search-results">
-  
-  </div>
 
            </div>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cpu_container.html" class="btn btn-neutral float-right" title="Dockerizing a CPU program:" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="setup.html" class="btn btn-neutral float-left" title="Setting up Docker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -209,14 +228,7 @@
   
   
     
-  
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
    
-
 
 </body>
 </html>

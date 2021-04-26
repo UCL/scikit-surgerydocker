@@ -36,6 +36,7 @@ extensions = [
     'sphinx.ext.napoleon',
     'sphinx.ext.viewcode',
     'sphinx_rtd_theme',
+    'sphinx_tabs.tabs',
     'recommonmark',
     ]
 
