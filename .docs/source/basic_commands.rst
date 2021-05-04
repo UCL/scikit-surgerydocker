@@ -8,6 +8,7 @@ Docker Version
 To find the version of installed docker client and docker server:
 
 .. code:: bash
+
     docker version
 
 Runing Container
@@ -17,12 +18,14 @@ then it will run that image. If the image is not available locally then the comm
 and if it is found it will be pulled/downloaded and run.
 
 .. code:: bash
+
     docker run hello-world
 
 If you run the same command then you will notice that this time the container runs very fast because the image is stored locally
 in the first step.
 
 .. code:: bash
+
     docker run hello-world
 
 List Images
@@ -30,6 +33,7 @@ List Images
 To list all the images either downloaded from the internet or created locally:
 
 .. code:: bash
+
     docker images
 
 List Running Containers
@@ -37,6 +41,7 @@ List Running Containers
 To list all the containers currently under execution
 
 .. code:: bash
+
     docker ps
 
 List all Containers
@@ -44,6 +49,7 @@ List all Containers
 To list all the containers that are under execution and those which finished execution.
 
 .. code:: bash
+
     docker ps -a
 
 Stop Container
@@ -51,6 +57,7 @@ Stop Container
 To stop a running container
 
 .. code:: bash
+
     # To find the ID of the container to stop
     docker ps
     # To stop the container
@@ -61,6 +68,7 @@ Start Container
 To start a stopped container
 
 .. code:: bash
+
     # To find the ID of the container to start
     docker ps -a 
     # To start the container
@@ -72,6 +80,7 @@ Get Container Details
 To get the container Details like IP address, image, creation time and much more
 
 .. code:: bash
+
     # To find the ID of the container to stop
     docker ps -a
     # To get the details of a container
@@ -83,6 +92,7 @@ Delete Container
 To delete a container
 
 .. code:: bash
+
     # To find the ID of the container to delete
     docker ps -a
     # To delete the container
@@ -94,6 +104,7 @@ Delete all Containers
 To delete all containers (running and stopped both)
 
 .. code:: bash
+
     docker rm -f $(docker ps -a -q)
 
 
@@ -102,6 +113,7 @@ Delete Image
 To delete an image
 
 .. code:: bash
+
     # To find the ID of the image to delete
     docker images
     # To delete the image
@@ -113,6 +125,7 @@ Delete all Images
 To delete all images
 
 .. code:: bash
+
     docker rmi -f $(docker images -a -q)
 
 

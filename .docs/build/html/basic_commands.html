@@ -1,0 +1,339 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Docker Basic Commands &mdash; scikit-surgerydocker 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/tabs.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="What is scikit-surgerydocker?" href="introduction.html" />
+    <link rel="prev" title="Setting up Docker" href="setup.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> scikit-surgerydocker
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setting up Docker</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Docker Basic Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#docker-version">Docker Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#runing-container">Runing Container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list-images">List Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list-running-containers">List Running Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list-all-containers">List all Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stop-container">Stop Container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#start-container">Start Container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-container-details">Get Container Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#delete-container">Delete Container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#delete-all-containers">Delete all Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#delete-image">Delete Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#delete-all-images">Delete all Images</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">What is scikit-surgerydocker?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpu_container.html">Dockerizing a CPU program:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpu_container.html">Dockerizing a GPU program:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="share_container.html">How to package your image for sharing</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">scikit-surgerydocker</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Docker Basic Commands</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/basic_commands.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="docker-basic-commands">
+<h1>Docker Basic Commands<a class="headerlink" href="#docker-basic-commands" title="Permalink to this headline">¶</a></h1>
+<p>The following are the most common commands that are needed to work with Docker. Open the terminal and run the commands.</p>
+<div class="section" id="docker-version">
+<h2>Docker Version<a class="headerlink" href="#docker-version" title="Permalink to this headline">¶</a></h2>
+<p>To find the version of installed docker client and docker server:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker version
+</pre></div>
+</div>
+</div>
+<div class="section" id="runing-container">
+<h2>Runing Container<a class="headerlink" href="#runing-container" title="Permalink to this headline">¶</a></h2>
+<p>The run command is the combination of two commands <cite>run</cite> and <cite>pull</cite>. If the image is available on the local computer
+then it will run that image. If the image is not available locally then the command will search the docker hub (internet) for the image
+and if it is found it will be pulled/downloaded and run.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run hello-world
+</pre></div>
+</div>
+<p>If you run the same command then you will notice that this time the container runs very fast because the image is stored locally
+in the first step.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run hello-world
+</pre></div>
+</div>
+</div>
+<div class="section" id="list-images">
+<h2>List Images<a class="headerlink" href="#list-images" title="Permalink to this headline">¶</a></h2>
+<p>To list all the images either downloaded from the internet or created locally:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker images
+</pre></div>
+</div>
+</div>
+<div class="section" id="list-running-containers">
+<h2>List Running Containers<a class="headerlink" href="#list-running-containers" title="Permalink to this headline">¶</a></h2>
+<p>To list all the containers currently under execution</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker ps
+</pre></div>
+</div>
+</div>
+<div class="section" id="list-all-containers">
+<h2>List all Containers<a class="headerlink" href="#list-all-containers" title="Permalink to this headline">¶</a></h2>
+<p>To list all the containers that are under execution and those which finished execution.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker ps -a
+</pre></div>
+</div>
+</div>
+<div class="section" id="stop-container">
+<h2>Stop Container<a class="headerlink" href="#stop-container" title="Permalink to this headline">¶</a></h2>
+<p>To stop a running container</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># To find the ID of the container to stop</span>
+docker ps
+<span class="c1"># To stop the container</span>
+docker stop &lt;container_ID&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="start-container">
+<h2>Start Container<a class="headerlink" href="#start-container" title="Permalink to this headline">¶</a></h2>
+<p>To start a stopped container</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># To find the ID of the container to start</span>
+docker ps -a
+<span class="c1"># To start the container</span>
+docker start &lt;container_ID&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-container-details">
+<h2>Get Container Details<a class="headerlink" href="#get-container-details" title="Permalink to this headline">¶</a></h2>
+<p>To get the container Details like IP address, image, creation time and much more</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># To find the ID of the container to stop</span>
+docker ps -a
+<span class="c1"># To get the details of a container</span>
+docker inspect &lt;container_ID&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete-container">
+<h2>Delete Container<a class="headerlink" href="#delete-container" title="Permalink to this headline">¶</a></h2>
+<p>To delete a container</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># To find the ID of the container to delete</span>
+docker ps -a
+<span class="c1"># To delete the container</span>
+docker rmi -f &lt;container_ID&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete-all-containers">
+<h2>Delete all Containers<a class="headerlink" href="#delete-all-containers" title="Permalink to this headline">¶</a></h2>
+<p>To delete all containers (running and stopped both)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker rm -f <span class="k">$(</span>docker ps -a -q<span class="k">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete-image">
+<h2>Delete Image<a class="headerlink" href="#delete-image" title="Permalink to this headline">¶</a></h2>
+<p>To delete an image</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># To find the ID of the image to delete</span>
+docker images
+<span class="c1"># To delete the image</span>
+docker rmi -f &lt;image_ID&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete-all-images">
+<h2>Delete all Images<a class="headerlink" href="#delete-all-images" title="Permalink to this headline">¶</a></h2>
+<p>To delete all images</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker rmi -f <span class="k">$(</span>docker images -a -q<span class="k">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="introduction.html" class="btn btn-neutral float-right" title="What is scikit-surgerydocker?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="setup.html" class="btn btn-neutral float-left" title="Setting up Docker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Mian Ahmad
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
