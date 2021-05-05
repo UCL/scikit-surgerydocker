@@ -70,3 +70,6 @@ source_suffix = {
 }
 
 # master_doc = 'contents'
+
+# tabs
+sphinx_tabs_valid_builders = ["linkcheck"]
