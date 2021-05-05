@@ -175,7 +175,10 @@ Click the tab according to your operating system and follow the steps to verify 
 
 
 
+**Note**
 
+If installation of docker is not possible locally then you can use a `free sandbox`_ provided by docker for practicing.
+You will need to `register`_ with docker to use the sandbox. You can run the `basic commands`_ after login to sandbox.
 
 
 
@@ -197,3 +200,6 @@ Click the tab according to your operating system and follow the steps to verify 
 .. _Mac installation: https://docs.docker.com/docker-for-mac/install/
 .. _Windows download link: https://desktop.docker.com/win/stable/amd64/Docker%20Desktop%20Installer.exe
 .. _Windows installation: https://docs.docker.com/docker-for-windows/install/
+.. _free sandbox: https://labs.play-with-docker.com/
+.. _register: https://hub.docker.com/signup 
+.. _basic commands: https://scikit-surgerydocker.readthedocs.io/en/latest/ 
