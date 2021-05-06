@@ -132,5 +132,8 @@ To delete all images
 
     docker rmi -f $(docker images -a -q)
 
+.. warning::
 
+   Deleting all images may be required on very few ocassions and most of the time you will need to delete
+   a single image using the previous command. You have to download an image again if you need it again.
 
