@@ -3,6 +3,10 @@ Docker Basic Commands
 
 The following are the most common commands that are needed to work with Docker. Open the terminal and run the commands.
 
+.. note::
+
+   If you have installed docker on local computer then make sure docker service is running before executing any command.
+
 Docker Version
 ^^^^^^^^^^^^^^
 To find the version of installed docker client and docker server:
