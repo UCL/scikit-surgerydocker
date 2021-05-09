@@ -36,7 +36,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="What is scikit-surgerydocker?" href="introduction.html" />
+    <link rel="next" title="Docker Intermediate Commands" href="intermediate_commands.html" />
     <link rel="prev" title="Setting up Docker" href="setup.html" /> 
 </head>
 
@@ -100,6 +100,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#delete-all-images">Delete all Images</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="intermediate_commands.html">Docker Intermediate Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">What is scikit-surgerydocker?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpu_container.html">Dockerizing a CPU program:</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gpu_container.html">Dockerizing a GPU program:</a></li>
@@ -172,6 +173,10 @@
   <div class="section" id="docker-basic-commands">
 <h1>Docker Basic Commands<a class="headerlink" href="#docker-basic-commands" title="Permalink to this headline">¶</a></h1>
 <p>The following are the most common commands that are needed to work with Docker. Open the terminal and run the commands.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you have installed docker on local computer then make sure docker service is running before executing any command.</p>
+</div>
 <div class="section" id="docker-version">
 <h2>Docker Version<a class="headerlink" href="#docker-version" title="Permalink to this headline">¶</a></h2>
 <p>To find the version of installed docker client and docker server:</p>
@@ -277,6 +282,11 @@ docker rmi -f &lt;image_ID&gt;
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker rmi -f <span class="k">$(</span>docker images -a -q<span class="k">)</span>
 </pre></div>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Deleting all images may be required on very few ocassions and most of the time you will need to delete
+a single image using the previous command. You have to download an image again if you need it again.</p>
+</div>
 </div>
 </div>
 
@@ -288,7 +298,7 @@ docker rmi -f &lt;image_ID&gt;
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="introduction.html" class="btn btn-neutral float-right" title="What is scikit-surgerydocker?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="intermediate_commands.html" class="btn btn-neutral float-right" title="Docker Intermediate Commands" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="setup.html" class="btn btn-neutral float-left" title="Setting up Docker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -7,6 +7,7 @@ Welcome to scikit-surgerydocker's documentation!
 
    setup
    basic_commands
+   intermediate_commands
    introduction
    cpu_container
    gpu_container

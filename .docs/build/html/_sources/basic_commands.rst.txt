@@ -3,6 +3,10 @@ Docker Basic Commands
 
 The following are the most common commands that are needed to work with Docker. Open the terminal and run the commands.
 
+.. Note::
+
+   If you have installed docker on local computer then make sure docker service is running before executing any command.
+
 Docker Version
 ^^^^^^^^^^^^^^
 To find the version of installed docker client and docker server:
@@ -128,5 +132,8 @@ To delete all images
 
     docker rmi -f $(docker images -a -q)
 
+.. warning::
 
+   Deleting all images may be required on very few ocassions and most of the time you will need to delete
+   a single image using the previous command. You have to download an image again if you need it again.
 
