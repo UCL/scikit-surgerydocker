@@ -29,5 +29,10 @@ Run the command
 Since MySQL server writes all data to /var/lib/mysql therefore the benefit of mounting the volume \
 is that all data will be persistant even if the container is deleted.
 
+Inspect command
+---------------
+To find the details of a container like port, mount volume etc. You can run the command
 
+.. code:: bash
+    docker inspect <container_ID/Container_name>
 
