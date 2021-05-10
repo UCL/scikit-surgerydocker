@@ -11,7 +11,7 @@ Docker Version
 ^^^^^^^^^^^^^^
 To find the version of installed docker client and docker server:
 
-.. code:: bash
+.. code-block:: bash
 
     docker version
 

@@ -74,3 +74,6 @@ source_suffix = {
 
 # tabs
 sphinx_tabs_valid_builders = ["linkcheck"]
+
+# To colour the bash command box green
+pygments_style = "sphinx"
