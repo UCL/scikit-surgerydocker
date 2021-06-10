@@ -67,6 +67,7 @@ Building your own docker image
 .. .. code:: bash
 
 ..     docker images
+
 .. role:: red
 
 The following two examples explains the process of creating your own docker image.
@@ -74,6 +75,7 @@ The following two examples explains the process of creating your own docker imag
 
 Example 1
 ---------
+
 
 :red:`Step 1:` Create a new directory and change to that directory
 
