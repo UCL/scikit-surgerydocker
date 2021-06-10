@@ -129,6 +129,9 @@ Step 7: To test the image, run your image using
 
     docker run -it mian_image_1:v1
 
+Step 8: Press `q` to quit the animation.
+
+
 
 Example 2
 ---------
@@ -162,9 +165,10 @@ Step 4: Open Dockerfile, write the following text in it and save the changes.
 .. code:: bash
 
     FROM python:3.6.9-slim
+    WORKDIR /usr/app
     COPY . .
     RUN pip install -r requirements.txt
-    WORKDIR /src
+    WORKDIR /usr/app/src
     CMD ["python", "app.py"]
 
 
@@ -186,3 +190,5 @@ Step 7: To test the image, run your image using
 .. code:: bash
 
     docker run -it mian_image_2:v1
+
+Step 8: Press `q` to quit the animation.
