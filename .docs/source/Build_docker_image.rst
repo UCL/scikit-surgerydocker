@@ -144,9 +144,12 @@ Step 1: Create a new directory and change to that directory
 
 Step 2: Clone the repo
 
+Step 2: Clone the repo and change into animated_text directory
+
 .. code:: bash
 
     git clone https://github.com/mianasbat/animated_text.git
+    cd animated_text
 
 Step 3: create a Dockerfile (case sensitive)
 
