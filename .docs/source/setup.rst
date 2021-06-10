@@ -38,12 +38,6 @@ Click the tab according to your operating system and follow the steps to install
         | For more details check out Docker's official `Windows installation`_ web page.
 
 
-Can't Install Docker
---------------------
-
-If installation of docker is not possible locally then you can use a `free sandbox`_ provided by docker for practicing.
-You will need to `register`_ with docker to use the sandbox. You can run the `basic commands`_ after login to sandbox.
-
 
 Verify Docker Setup
 -------------------
@@ -180,16 +174,11 @@ Click the tab according to your operating system and follow the steps to verify 
             For more examples and ideas, visit:
             https://docs.docker.com/get-started/
 
+Can't Install Docker
+--------------------
 
-
-
-
-
-
-
-
-
-
+If installation of docker is not possible locally then you can use a `free sandbox`_ provided by docker for practicing.
+You will need to `register`_ with docker to use the sandbox. You can run the `basic commands`_ after login to sandbox.
 
 
 
