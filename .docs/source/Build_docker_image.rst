@@ -3,6 +3,12 @@ Building your own docker image
 
 .. There are two common ways to build your own docker image. Both ways are described below
 
+
+.. Note::
+
+   If you have installed docker on local computer then make sure docker service is running before executing any command.
+   
+
 .. Method 1
 .. --------
 .. This is an interactive way of making your image. First you will setup the container according to your desire and then you will commit the changes to make the image.
