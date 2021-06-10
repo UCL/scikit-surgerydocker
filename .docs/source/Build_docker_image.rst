@@ -82,11 +82,12 @@ Step 1: Create a new directory and change to that directory
     mkdir image_1
     cd image_1
 
-Step 2: Clone the repo
+Step 2: Clone the repo and change into animated_text directory
 
 .. code:: bash
 
     git clone https://github.com/mianasbat/animated_text.git
+    cd animated_text
 
 Step 3: create a Dockerfile (case sensitive)
 
@@ -103,9 +104,10 @@ Step 4: Open Dockerfile, write the following text in it and save the changes.
     RUN apt-get install -y python3.6
     RUN apt-get install -y python3-pip
     RUN apt-get install -y wget
+    WORKDIR /usr/app
     COPY . .
     RUN pip3 install -r requirements.txt
-    WORKDIR /src
+    WORKDIR /usr/app/src
     CMD ["python3", "app.py"]
 
 
@@ -120,6 +122,12 @@ Step 6: Now verify that the image is created by
 .. code:: bash
 
     docker images
+
+Step 7: To test the image, run your image using
+
+.. code:: bash
+
+    docker run -it mian_image_1:v1
 
 
 Example 2
@@ -169,3 +177,9 @@ Step 6: Now verify that the image is created by
 .. code:: bash
 
     docker images
+
+Step 7: To test the image, run your image using
+
+.. code:: bash
+
+    docker run -it mian_image_2:v1
