@@ -15,6 +15,20 @@ To find the version of installed docker client and docker server:
 
     docker version
 
+
+Download image
+^^^^^^^^^^^^^^
+To download/pull an image from the default registry (docherhub).
+
+.. code:: bash
+
+    docker pull <image name>
+    e.g.
+    docker pull hello-world
+    or
+    docker pull busybox
+
+
 Runing Container
 ^^^^^^^^^^^^^^^^
 The run command is the combination of two commands `run` and `pull`. If the image is available on the local computer
@@ -23,9 +37,13 @@ and if it is found it will be pulled/downloaded and run.
 
 .. code:: bash
 
+    docker run <image name>
+    e.g. 
     docker run hello-world
+    or
+    docker run busybox echo "Hello World"
 
-If you run the same command then you will notice that this time the container runs very fast because the image is stored locally
+If you run the same command again then you will notice that this time the container runs very fast because the image is stored locally
 in the first step.
 
 .. code:: bash
@@ -91,6 +109,14 @@ To get the container Details like IP address, image, creation time and much more
     docker inspect <container_ID>
 
 
+Get all information
+^^^^^^^^^^^^^^^^^^^
+To get the complete details about running containers, stopped containers, images, server, network, storage etc.
+
+.. code:: bash
+    docker info
+
+
 Delete Container
 ^^^^^^^^^^^^^^^^
 To delete a container
@@ -122,6 +148,8 @@ To delete an image
     docker images
     # To delete the image
     docker rmi -f <image_ID>
+    # e.g.
+    docker rmi -f hello-world
 
 
 Delete all Images
