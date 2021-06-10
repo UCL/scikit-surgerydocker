@@ -174,8 +174,8 @@ Click the tab according to your operating system and follow the steps to verify 
             For more examples and ideas, visit:
             https://docs.docker.com/get-started/
 
-Can't Install Docker
---------------------
+Can't Install? Try online
+-------------------------
 
 If installation of docker is not possible locally then you can use a `free sandbox`_ provided by docker for practicing.
 You will need to `register`_ with docker to use the sandbox. You can run the `basic commands`_ after login to sandbox.
