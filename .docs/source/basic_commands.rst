@@ -23,9 +23,9 @@ To download/pull an image from the default registry (docherhub).
 .. code:: bash
 
     docker pull <image name>
-    e.g.
+    # e.g.
     docker pull hello-world
-    or
+    # or
     docker pull busybox
 
 
@@ -38,9 +38,9 @@ and if it is found it will be pulled/downloaded and run.
 .. code:: bash
 
     docker run <image name>
-    e.g. 
+    # e.g. 
     docker run hello-world
-    or
+    # or
     docker run busybox echo "Hello World"
 
 If you run the same command again then you will notice that this time the container runs very fast because the image is stored locally
@@ -114,7 +114,7 @@ Get all information
 To get the complete details about running containers, stopped containers, images, server, network, storage etc.
 
 .. code:: bash
-    
+
     docker info
 
 
@@ -148,7 +148,7 @@ To delete an image
     # To find the ID of the image to delete
     docker images
     # To delete the image
-    docker rmi -f <image_ID>
+    docker rmi -f <image_ID or image_name>
     # e.g.
     docker rmi -f hello-world
 
