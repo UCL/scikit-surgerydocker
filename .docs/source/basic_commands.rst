@@ -114,6 +114,7 @@ Get all information
 To get the complete details about running containers, stopped containers, images, server, network, storage etc.
 
 .. code:: bash
+    
     docker info
 
 
