@@ -9,12 +9,27 @@ To open port on the container and map it to the port on dockerhost. Run the comm
 
 .. code:: bash
 
-    docker run -p 5000:80 nginx
+    docker run -d -p 5000:80 nginx
 
 where
 
+- :code:`-d` is used to run the container in backgroud.
 - :code:`-p` is used for port mapping.
 - :code:`5000:80` means map port 80 of nginx container to port 5000 on dockerhost.
+
+To verify the service open browser and go to the address `localhost:5000` 
+
+
+
+Limit RAM
+---------
+To specify maximum memory to a container
+
+.. code:: bash
+
+    docker run --memory=1g -p 5000:80 nginx
+
+To check the resource utilization
 
 Volume Mapping
 --------------
