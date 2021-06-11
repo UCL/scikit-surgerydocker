@@ -1,4 +1,4 @@
-Docker Intermediate Commands
+Docker Advance Commands
 ============================
 
 The following are the intermediate level commands that are needed to work with Docker. Open the terminal and run the commands.
