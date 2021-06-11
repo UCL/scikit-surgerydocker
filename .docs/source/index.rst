@@ -9,7 +9,7 @@ Welcome to scikit-surgerydocker's documentation!
    basic_commands
    Build_docker_image
    dockerhub.rst
-   intermediate_commands
+   advance_commands
    introduction
    cpu_container
    gpu_container
