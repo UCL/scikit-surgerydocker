@@ -22,14 +22,34 @@ To verify the service open browser and go to the address `localhost:5000`
 
 
 Limit RAM
----------
-To specify maximum memory to a container
+-------------------
+To specify maximum memory for a container
 
 .. code:: bash
 
-    docker run --memory=1g -p 5000:80 nginx
+    docker run -d -p 5000:80 --memory=1g nginx
+    # To find the container ID or name
+    docker ps 
+    # To find the resource utilization of the container
+    docker stats <container_name or container_ID>
 
-To check the resource utilization
+
+Limit CPU
+-------------------
+To specify limit on maximum cpu utilization of a container
+
+.. code:: bash
+
+    docker run -d -p 5555:80 --cpus="1.0" nginx
+
+Limit GPU
+---------
+To specify specific number of gpus for a container. E.g. to assign only 1 GPU
+
+.. code:: bash
+
+    docker run -it --rm --gpus="1" ubuntu nvidia-smi
+
 
 Volume Mapping
 --------------
