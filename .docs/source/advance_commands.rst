@@ -54,15 +54,26 @@ To specify specific number of gpus for a container. E.g. to assign only 1 GPU
 Volume Mapping
 --------------
 
-To keep the data of container persistant (keeping the data even when the container is deleted), 
+To keep the data of container persistant (keeping the data even when the container is deleted),
 Run the command
 
 .. code:: bash
 
-    docker run -v  /opt/data:/var/lib/mysql mysql
+    docker run -v  "$PWD/web:/usr/share/nginx/html"
 
 - :code:`-v` is used for volumen mapping.
-- :code:`/opt/data:/var/lib/mysql` means map /var/lib/mysql directory in the container to /opt/data directory in dockerhost. Since MySQL server writes all data to /var/lib/mysql therefore the benefit of mounting the volume is that all data will be persistant even if the container is deleted.
+- :code:`$PWD/web:/usr/share/nginx/html` means map `web` directory in the present working directory (PWD) to /usr/share/nginx/html directory in the container. 
+
+Now you can keep the web code in the docker host (local computer) and run it inside the container. e.g.
+
+.. code:: bash
+
+    mkdir web
+    echo "Hello World" > web/index.html
+    docker run -d -v "$PWD/web:/usr/share/nginx/html" -p 6666:80 nginx
+
+Now check the website "localhost:6666" from your computer.
+
 
 Inspect command
 ---------------
