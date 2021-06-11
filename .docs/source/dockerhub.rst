@@ -8,7 +8,9 @@ Create Dockerhub account
 `Docker hub`_ is one of the main docker registry to store your images. You can save multiple public images for free. 
 To sign up to docker hub visit `here`_.
 
-Make a note of your dockerhub account name because you will need it to login from terminal in a later step.
+.. Note::
+    
+    Make a note of your dockerhub account name because you will need it to login from terminal in a later step.
 
 Create a repository
 -------------------
@@ -27,18 +29,21 @@ Create a repository
 
    #. Give a description.
 
+   #. Select the public/private permission.
+
    #. Click Create to create the repo.
 
 
+.. Optional and can create confusion so commented.
 
-Compress image
---------------
-On docker host (local computer), compress the image into `.tar` file for quick upload to dockerhub. The following command will create `.tar` file of your image in the current directory.
+.. Compress image
+.. --------------
+.. On docker host (local computer), compress the image into `.tar` file for quick upload to dockerhub. The following command will create `.tar` file of your image in the current directory.
 
-.. code:: bash
+.. .. code:: bash
 
-    docker save image_1 > image_1.ter
-    ls
+..     docker save image_1 > image_1.ter
+..     ls
 
 
 Tag your image
@@ -48,10 +53,10 @@ Now you need to tag your image to link it to your dockerhub account. The format 
 
 .. code:: bash
 
-    docker tag image_1 <dockerhub_username>/<image_name>:<tag_name>
+    docker tag image_1:v1 <dockerhub_username>/<repository_name>:<tag_name>
     # e.g. 
-    docker tag image_1 mianasbat/image_1:v1
-    # To check images
+    docker tag image_1:v1 mianasbat/image_1:v1
+    # To check the updated image
     docker images
 
 
@@ -76,7 +81,20 @@ Finally to push it to dockerhub
 
 .. code:: bash
 
-    docker push <dockherhub_username>/image_nae:v1
+    docker push <dockherhub_username>/image_name:v1
+    e.g.
+    docker push mianasbat/image_1:v1
+
+
+Verify the upload
+------------------
+On completion of the upload step, go to dockerhub online and check the repository. You will have the new image available. Click the public view to see how to download.
+
+.. image:: img/public.png
+    :alt: dockerhub image uploaded
+    :width: 600
+
+
 
 
 
