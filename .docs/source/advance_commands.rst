@@ -27,7 +27,7 @@ To specify maximum memory for a container
 
 .. code:: bash
 
-    docker run -d -p 5000:80 --memory=1g nginx
+    docker run -d -p 5001:80 --memory=1g nginx
     # To find the container ID or name
     docker ps 
     # To find the resource utilization of the container
@@ -40,7 +40,7 @@ To specify limit on maximum cpu utilization of a container
 
 .. code:: bash
 
-    docker run -d -p 5555:80 --cpus="1.0" nginx
+    docker run -d -p 5002:80 --cpus="1.0" nginx
 
 Limit GPU
 ---------
@@ -59,7 +59,7 @@ Run the command
 
 .. code:: bash
 
-    docker run -v  "$PWD/web:/usr/share/nginx/html"
+    docker run -v  "$PWD/web:/usr/share/nginx/html" nginx
 
 - :code:`-v` is used for volumen mapping.
 - :code:`$PWD/web:/usr/share/nginx/html` means map `web` directory in the present working directory (PWD) to /usr/share/nginx/html directory in the container. 
@@ -72,7 +72,7 @@ Now you can keep the web code in the docker host (local computer) and run it ins
     echo "Hello World" > web/index.html
     docker run -d -v "$PWD/web:/usr/share/nginx/html" -p 6666:80 nginx
 
-Now check the website "localhost:6666" from your computer.
+Now check the website "localhost:5005" from your computer.
 
 
 Inspect command
