@@ -10,6 +10,8 @@ Welcome to scikit-surgerydocker's documentation!
    Build_docker_image
    dockerhub.rst
    advance_commands
+   repeatable
+   replicable
    introduction
    cpu_container
    gpu_container
