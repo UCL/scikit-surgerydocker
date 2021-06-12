@@ -37,8 +37,10 @@ Dockerize the Repo
 
     FROM mianasbat/ubuntu1804-py3.6-pip:latest
     RUN apt-get update
-    RUN apt-get install –y ffmpeg libsm6 libxext6
+    RUN apt-get install ffmpeg libsm6 libxext6 -y
     RUN python -m pip install --upgrade pip
+    RUN mkdir /mnt/input_data
+    RUN mkdir /mnt/output_data
     WORKDIR /opt/app
     COPY . .
     RUN python -m pip install -rrequirements.txt
@@ -55,7 +57,7 @@ Dockerize the Repo
 
 .. code:: bash
 
-     docker run -v "$PWD/input_data:/mnt/input_data" -v "$PWD/output_data:/mnt/output_data" img_seg:v1 python3 reg.py /mnt/input_data /mnt/output_data
+     docker run -v "$PWD/input_data:/mnt/input_data" -v "$PWD/output_data:/mnt/output_data" img_seg:v4 python3 reg.py /mnt/input_data /mnt/output_data
   
 **Step 5:** Now check the output_directory in the current directory to get the results.
  
