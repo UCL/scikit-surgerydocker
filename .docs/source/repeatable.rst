@@ -35,15 +35,15 @@ Dockerize the Repo
 
     touch Dockerfile
     open Dockerfile
-
+    
     FROM mianasbat/ubuntu1804-py3.6-pip:latest
     RUN apt-get update
-    RUN apt-get install –y ffmpeg libsm6 libxext6
+    RUN apt-get install ffmpeg libsm6 libxext6 -y
     RUN python -m pip install --upgrade pip
     WORKDIR /opt/app
     COPY . .
     RUN python -m pip install -rrequirements.txt
-    CMD ["python3", "reg.py"]
+    CMD ["python3", "reg.py", "input_data", "output_data"]
 
 
 **Step 3:** Build the image
@@ -58,13 +58,13 @@ Dockerize the Repo
 
     docker run img_seg:v1
 
-**Step 5:** Find the container ID and copy the results from the container to docker host (local computer)
+**Step 5:** Find the container ID and copy the results from the container to current directory
 
 .. code:: bash
 
     docker ps -a
-    docker cp <container_ID or container_name>:/opt/app/output_data ./
+    docker cp <container_ID or container_name>:/opt/app/output_data .
 
 **Step 6:**
 
-    You can upload the image :code:`img_seg:v1` for others to reproduce the results. Check the share image section of the tutorial.
+    You can upload the image :code:`img_seg:v1` for others to reproduce the results. Check the share image section of the workshop.
