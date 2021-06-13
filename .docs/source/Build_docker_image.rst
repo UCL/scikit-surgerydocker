@@ -145,6 +145,7 @@ In this example, we will create the same image but starting from different base 
 
 .. code:: bash
 
+    cd
     mkdir image_2
     cd image_2
 
@@ -190,6 +191,11 @@ In this example, we will create the same image but starting from different base 
 
 .. code:: bash
 
-    docker run -it mian_image_2:v1
+    # For Mac and Linux
+    docker run -it mian_image_1:v1
+    # For windows in gitbash
+    winpty docker run -it mian_image_1:v1
 
 :code:`Step :` Press `q` to quit the animation.
+
+Now run :code:`docker images` and check the sizes of both your images. Small size images are more portable than large size for the same task.
