@@ -75,27 +75,27 @@ Example 1
 ---------
 
 
-**Step 1:** Create a new directory and change to that directory
+:code:`Step 1:` Create a new directory and change to that directory
 
 .. code:: bash
 
     mkdir image_1
     cd image_1
 
-**Step 2:** Clone the repo and change into animated_text directory
+:code:`Step 2:` Clone the repo and change into animated_text directory
 
 .. code:: bash
 
     git clone https://github.com/mianasbat/animated_text.git
     cd animated_text
 
-**Step 3:** create a Dockerfile (case sensitive)
+:code:`Step 3:` create a Dockerfile (case sensitive)
 
 .. code:: bash
 
     touch Dockerfile
 
-**Step 4:** Open Dockerfile, write the following text in it and save the changes.
+:code:`Step 4:` Open Dockerfile, write the following text in it and save the changes.
 
 .. code:: bash
 
@@ -111,25 +111,28 @@ Example 1
     CMD ["python3", "app.py"]
 
 
-**Step 5:** Now run the command to create the image. The -t is used to tag it. Dont forget the . at the end of the command.
+:code:`Step 5:` Now run the command to create the image. The -t is used to tag it. Dont forget the . at the end of the command.
 
 .. code:: bash
 
     docker build -t mian_image_1:v1 .
 
-**Step 6:** Now verify that the image is created by
+:code:`Step 6:` Now verify that the image is created by
 
 .. code:: bash
 
     docker images
 
-**Step 7:** To test the image, run your image using
+:code:`Step 7:` To test the image, run your image using
 
 .. code:: bash
-
+    
+    # For Mac and Linux
     docker run -it mian_image_1:v1
+    # For windows in gitbash
+    winpty docker run -it mian_image_1:v1
 
-**Step 8:** Press `q` to quit the animation.
+:code:`Step 8:` Press `q` to quit the animation.
 
 
 
@@ -138,27 +141,27 @@ Example 2
 
 In this example, we will create the same image but starting from different base image
 
-**Step 1:** Create a new directory and change to that directory
+:code:`Step 1:` Create a new directory and change to that directory
 
 .. code:: bash
 
     mkdir image_2
     cd image_2
 
-**Step 2:** Clone the repo and change into animated_text directory
+:code:`Step 2:` Clone the repo and change into animated_text directory
 
 .. code:: bash
 
     git clone https://github.com/mianasbat/animated_text.git
     cd animated_text
 
-**Step 3:** create a Dockerfile (case sensitive)
+:code:`Step 3:` create a Dockerfile (case sensitive)
 
 .. code:: bash
 
     touch Dockerfile
 
-**Step 4:** Open Dockerfile, write the following text in it and save the changes.
+:code:`Step 4:` Open Dockerfile, write the following text in it and save the changes.
 
 .. code:: bash
 
@@ -171,22 +174,22 @@ In this example, we will create the same image but starting from different base 
 
 
 
-**Step 5:** Now run the command to create the image. The -t is used to tag it. Dont forget the . at the end of the command.
+:code:`Step 5:` Now run the command to create the image. The -t is used to tag it. Dont forget the . at the end of the command.
 
 .. code:: bash
 
     docker build -t mian_image_2:v1 .
 
-**Step 6:** Now verify that the image is created by
+:code:`Step 6:` Now verify that the image is created by
 
 .. code:: bash
 
     docker images
 
-**Step 7:** To test the image, run your image using
+:code:`Step 7:` To test the image, run your image using
 
 .. code:: bash
 
     docker run -it mian_image_2:v1
 
-**Step 8:** Press `q` to quit the animation.
+:code:`Step :` Press `q` to quit the animation.
