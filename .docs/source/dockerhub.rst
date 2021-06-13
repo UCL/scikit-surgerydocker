@@ -68,9 +68,17 @@ On docker host login to your docker hub account from terminal by the following c
 
 .. code:: bash
 
+    # On Mac and Linux
     docker login
-    enter dockerhub username
-    enter password
+    username: <enter dockerhub id>
+    password: <enter password>
+    Login succeeded
+
+    # On Windows gitbash
+    winpty docker login
+    username: <enter dockerhub id>
+    password: <enter password>
+    Login succeeded
 
 
 
@@ -88,14 +96,26 @@ Finally to push it to dockerhub
 
 Verify the upload
 ------------------
-On completion of the upload step, go to dockerhub online and check the repository. You will have the new image available. Click the public view to see how to download.
+On completion of the upload step, go to `dockerhub <hub.docker.com>`_ online and check the repository. You will have the new image available. Click the public view to see how to download.
 
 .. image:: img/public.png
     :alt: dockerhub image uploaded
     :width: 600
 
 
+Sharing your image
+------------------
+People can easily reproduce your work if its permission is publice.
 
+.. code:: bash
+
+    docker run <dockerhub ID>/<repository_name:tag_name>
+
+    # On Mac and Linux
+    docker run mianasbat/image_1:v1
+
+    On Windows in gitbash
+    winpty docker run mianasbat/image_1:v1
 
 
 .. _Docker hub: https://hub.docker.com/
