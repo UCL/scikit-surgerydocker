@@ -192,9 +192,9 @@ In this example, we will create the same image but starting from different base 
 .. code:: bash
 
     # For Mac and Linux
-    docker run -it image_1:v1
+    docker run -it image_2:v1
     # For windows in gitbash
-    winpty docker run -it image_1:v1
+    winpty docker run -it image_2:v1
 
 :code:`Step :` Press `q` to quit the animation.
 
