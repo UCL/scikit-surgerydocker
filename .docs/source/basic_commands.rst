@@ -31,24 +31,19 @@ To download/pull an image from the default registry (docherhub).
 
 Runing Container
 ^^^^^^^^^^^^^^^^
-The run command is the combination of two commands `run` and `pull`. If the image is available on the local computer
-then it will run that image. If the image is not available locally then the command will search the docker hub (internet) for the image
-and if it is found it will be pulled/downloaded and run.
+The run command is the combination of two commands :code:`run` and :code:`pull`. If the image is available on the local computer
+then it will run that image. If the image is not available locally then the command will search the `docker hub <https://hub.docker.com/>`_ for the image
+and if it is found it will be pulled/downloaded and run as container.
 
 .. code:: bash
 
     docker run <image name>
     # e.g. 
-    docker run hello-world
+    docker run -d hello-world
     # or
-    docker run busybox echo "Hello World"
+    docker run -d busybox echo "Hello World"
 
-If you run the same command again then you will notice that this time the container runs very fast because the image is stored locally
-in the first step.
-
-.. code:: bash
-
-    docker run hello-world
+:code:`-d` option is used to run the container in the background and free terminal to run more commands. 
 
 List Images
 ^^^^^^^^^^^
@@ -80,7 +75,10 @@ To stop a running container
 
 .. code:: bash
 
-    # To find the ID of the container to stop
+    # First step is to run the container which you will stop below. 
+    # The following command will keep busybox container running for 10 seconds
+    docker run -d busybox sleep 10
+    # Second step is to find the ID of the container to stop
     docker ps
     # To stop the container
     docker stop <container_ID>
@@ -99,7 +97,7 @@ To start a stopped container
 
 Get Container Details
 ^^^^^^^^^^^^^^^^^^^^^
-To get the container Details like IP address, image, creation time and much more
+To get the container details like IP address, image, creation time and much more
 
 .. code:: bash
 
@@ -120,14 +118,14 @@ To get the complete details about running containers, stopped containers, images
 
 Delete Container
 ^^^^^^^^^^^^^^^^
-To delete a container
+To remove/delete a container
 
 .. code:: bash
 
     # To find the ID of the container to delete
     docker ps -a
     # To delete the container
-    docker rmi -f <container_ID>
+    docker rm -f <container_ID>
 
 
 Delete all Containers
@@ -155,14 +153,9 @@ To delete an image
 
 Delete all Images
 ^^^^^^^^^^^^^^^^^
-To delete all images
+To remove/delete all images
 
 .. code:: bash
 
     docker rmi -f $(docker images -a -q)
-
-.. warning::
-
-   Deleting all images may be required on very few ocassions and most of the time you will need to delete
-   a single image using the previous command. You have to download an image again if you need it again.
 
