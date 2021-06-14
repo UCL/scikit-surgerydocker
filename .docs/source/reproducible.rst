@@ -1,7 +1,7 @@
-Repeatable Reproducible
+Reproducible Results
 =======================
 
-From repeatable reproducible, I mean the process where same data and same script of a research is executed to always get the same results.
+Reproducible results mean the process where same data and same analysis script is executed to always get the same exact results.
 
 About selected project
 ----------------------
@@ -12,7 +12,10 @@ The repo is at `Simplified Fet-reg 2021 <https://bit.ly/3iAMZNf>`_.
 The :code:`reg.py` file contains an algorithm that reads :code:`.png` images from a directory, process it and store the results in output directory.
 
 .. code:: bash
-    
+
+    python -m virtualenv env_reg
+    source env_reg/bin/activate
+    pip install -rrequirements.txt
     python reg.py input_data output_data
 
 The above command runs the algorithm on :code:`*.png` images stored in the provided :code:`input_data` directory. The algorithm perform the analysis and 
@@ -29,7 +32,7 @@ Dockerize the Repo
     git clone https://github.com/mianasbat/FetReg-2021.git
     cd FetReg-2021
 
-**Step 2:** Create a Dockerfile (Remember :code:`D` must be capital and no file extension) and store the following text.
+**Step 2:** Create a Dockerfile (Remember: :code:`D` in Dockerfile must be capital and no file extension) and store the following text.
 
 .. code:: bash
 

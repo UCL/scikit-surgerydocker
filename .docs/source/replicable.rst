@@ -1,4 +1,4 @@
-Raplicable Reproducible
+Raplicable Results
 =======================
 
 From raplicable reproducible, I mean the process where same analysis script but different data is executed and the results are qualitatively same.
@@ -25,6 +25,8 @@ Dockerize the Repo
 
 .. code:: bash
 
+    mkdir temp
+    cd temp
     git clone https://github.com/mianasbat/FetReg-2021.git
     cd FetReg-2021
 
@@ -57,7 +59,10 @@ Dockerize the Repo
 
 .. code:: bash
 
-     docker run -v "$PWD/input_data:/mnt/input_data" -v "$PWD/output_data:/mnt/output_data" img_seg:v4 python3 reg.py /mnt/input_data /mnt/output_data
+    docker run -v "$PWD/input_data:/mnt/input_data" -v "$PWD/output_data:/mnt/output_data" img_seg:v4 python3 reg.py /mnt/input_data /mnt/output_data
+
+    # For windows add the / before both $ symbols
+    docker run -v "/$PWD/input_data:/mnt/input_data" -v "/$PWD/output_data:/mnt/output_data" img_seg:v4 python3 reg.py /mnt/input_data /mnt/output_data
   
 **Step 5:** Now check the output_directory in the current directory to get the results.
  
