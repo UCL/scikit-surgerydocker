@@ -15,7 +15,7 @@ Welcome to scikit-surgerydocker's documentation!
    introduction
    cpu_container
    gpu_container
-   share_container.md
+.. share_container.md
 
 
 

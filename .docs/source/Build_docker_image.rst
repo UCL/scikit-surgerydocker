@@ -196,6 +196,6 @@ In this example, we will create the same image but starting from different base 
     # For windows in gitbash
     winpty docker run -it image_2:v1
 
-:code:`Step :` Press `q` to quit the animation.
+:code:`Step 8:` Press `q` to quit the animation.
 
 Now run :code:`docker images` and check the sizes of both your images. Small size images are more portable than large size for the same task.
