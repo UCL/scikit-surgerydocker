@@ -105,7 +105,7 @@ On completion of the upload step, go to `dockerhub <hub.docker.com>`_ online and
 
 Sharing your image
 ------------------
-People can easily reproduce your work if its permission is publice.
+People can easily reproduce your work if repository permission is public.
 
 .. code:: bash
 
