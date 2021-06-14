@@ -46,6 +46,9 @@ Limit GPU
 ---------
 To specify specific number of gpus for a container. E.g. to assign only 1 GPU
 
+.. Note:: 
+    On computers not having a GPU the following command will give an error.
+
 .. code:: bash
 
     docker run -it --rm --gpus="1" ubuntu nvidia-smi
@@ -55,24 +58,30 @@ Volume Mapping
 --------------
 
 To keep the data of container persistant (keeping the data even when the container is deleted),
-Run the command
 
-.. code:: bash
 
-    docker run -v  "$PWD/web:/usr/share/nginx/html" nginx
-
-- :code:`-v` is used for volumen mapping.
-- :code:`$PWD/web:/usr/share/nginx/html` means map `web` directory in the present working directory (PWD) to /usr/share/nginx/html directory in the container. 
-
-Now you can keep the web code in the docker host (local computer) and run it inside the container. e.g.
 
 .. code:: bash
 
     mkdir web
-    echo "Hello World" > web/index.html
-    docker run -d -v "$PWD/web:/usr/share/nginx/html" -p 6666:80 nginx
+    echo "Hello World " > web/index.html
+    docker run -v "$PWD/web:/usr/share/nginx/html" -d -p 5005:80 nginx
+
+    # On windows in gitbash
+    mkdir web
+    echo "Hello World " > web/index.html
+    # Note the extra / before $PWD to make it work in windows.
+    docker run -v "/$PWD/web:/usr/share/nginx/html" -d -p 5005:80 nginx
+
+
+
+- :code:`-v` is used for volumen mapping.
+- :code:`$PWD/web:/usr/share/nginx/html` means map :code:`web` directory in the present working directory ($PWD) to /usr/share/nginx/html directory in the container. 
 
 Now check the website "localhost:5005" from your computer.
+
+
+Now data and web server are loosely coupled and even if the container is deleted you can spin another container and mount the existing data.
 
 
 Inspect command
