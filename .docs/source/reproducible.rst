@@ -14,7 +14,10 @@ The :code:`reg.py` file contains an algorithm that reads :code:`.png` images fro
 .. code:: bash
 
     python -m virtualenv env_reg
+    # On Mac & Linux
     source env_reg/bin/activate
+    # On Windows
+    env_reg/bin/activate
     pip install -rrequirements.txt
     python reg.py input_data output_data
 
