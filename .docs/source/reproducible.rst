@@ -18,6 +18,8 @@ The :code:`reg.py` file contains an algorithm that reads :code:`.png` images fro
     source env_reg/bin/activate
     # On Windows
     env_reg/bin/activate
+    git clone https://github.com/mianasbat/FetReg-2021.git
+    cd FetReg-2021
     pip install -rrequirements.txt
     python reg.py input_data output_data
 
