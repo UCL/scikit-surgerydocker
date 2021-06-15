@@ -114,7 +114,7 @@ People can easily reproduce your work if repository permission is public.
     # On Mac and Linux
     docker run mianasbat/image_1:v1
 
-    On Windows in gitbash
+    # On Windows in gitbash
     winpty docker run mianasbat/image_1:v1
 
 
