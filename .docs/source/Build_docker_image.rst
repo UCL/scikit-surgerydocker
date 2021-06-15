@@ -68,17 +68,18 @@ Building your own docker image
 
 ..     docker images
 
-The following two examples explains the process of creating your own docker image.
+The following two examples explain the process of creating your own docker images.
 
 
 Example 1
 ---------
 
 
-:code:`Step 1:` Create a new directory and change to that directory
+:code:`Step 1:` Create a new directory and change into that directory
 
 .. code:: bash
 
+    cd
     mkdir image_1
     cd image_1
 
@@ -111,13 +112,13 @@ Example 1
     CMD ["python3", "app.py"]
 
 
-:code:`Step 5:` Now run the command to create the image. The -t is used to tag it. Dont forget the . at the end of the command.
+:code:`Step 5:` Now run the command to create the image. The :code:`-t` is used to tag the image. Dont forget the :code:`.` at the end of the command.
 
 .. code:: bash
 
     docker build -t image_1:v1 .
 
-:code:`Step 6:` Now verify that the image is created by
+:code:`Step 6:` Now verify that the image is created using command
 
 .. code:: bash
 
@@ -129,17 +130,18 @@ Example 1
     
     # For Mac and Linux
     docker run -it image_1:v1
+
     # For windows in gitbash
     winpty docker run -it image_1:v1
 
-:code:`Step 8:` Press `q` to quit the animation.
+:code:`Step 8:` Press :code:`q` to quit the animation.
 
 
 
 Example 2
 ---------
 
-In this example, we will create the same image but starting from different base image
+In this example, we will create the same image but starting from a different base image
 
 :code:`Step 1:` Create a new directory and change to that directory
 
@@ -181,7 +183,7 @@ In this example, we will create the same image but starting from different base 
 
     docker build -t image_2:v1 .
 
-:code:`Step 6:` Now verify that the image is created by
+:code:`Step 6:` Now verify that the image is created running the command
 
 .. code:: bash
 
@@ -193,9 +195,11 @@ In this example, we will create the same image but starting from different base 
 
     # For Mac and Linux
     docker run -it image_2:v1
+
     # For windows in gitbash
     winpty docker run -it image_2:v1
 
-:code:`Step 8:` Press `q` to quit the animation.
+:code:`Step 8:` Press :code:`q` to quit the animation.
 
-Now run :code:`docker images` and check the sizes of both your images. Small size images are more portable than large size for the same task.
+Now run the command :code:`docker images` and check the sizes of both your images. 
+Small size images are more portable than large size. So in this case we will prefer second example.
