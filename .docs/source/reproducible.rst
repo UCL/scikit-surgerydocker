@@ -41,7 +41,7 @@ Dockerize the Repo
 
     touch Dockerfile
     
-    # open Dockerfike with any text editory
+    # open Dockerfike with any text editor
     open Dockerfile
     
     FROM mianasbat/ubuntu1804-py3.6-pip:latest
