@@ -18,7 +18,7 @@ The :code:`reg.py` file contains an algorithm that reads :code:`.png` images fro
     source env_reg/bin/activate
     # On Windows
     env_reg/bin/activate
-    git clone https://github.com/mianasbat/FetReg-2021.git
+    git clone https://github.com/mianasbat/test1.git
     cd FetReg-2021
     pip install -rrequirements.txt
     python reg.py input_data output_data
@@ -34,7 +34,7 @@ Dockerize the Repo
 
 .. code:: bash
 
-    git clone https://github.com/mianasbat/FetReg-2021.git
+    git clone https://github.com/mianasbat/test1.git
     cd FetReg-2021
 
 **Step 2:** Create a Dockerfile (Remember: :code:`D` in Dockerfile must be capital and no file extension) and store the following text.
