@@ -1,7 +1,7 @@
-Raplicable Results
+Replicable Results
 =======================
 
-From raplicable reproducible, I mean the process where same analysis script but different data is executed and the results are qualitatively same.
+From replicable reproducible, I mean the process where same analysis script but different data is executed and the results are qualitatively same.
 
 About selected project
 ----------------------
