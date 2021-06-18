@@ -2,12 +2,12 @@
 [![Documentation Status](https://readthedocs.org/projects/scikit-surgerydocker/badge/?version=latest)](https://scikit-surgerydocker.readthedocs.io/en/latest/?badge=latest)
 
 # What is scikit-surgerydocker?
-Scikit-surgerydocker is a template project that containerize (create docker image) Python project/algorithm. It specify the steps of how to share the project image with the world freely. It further explains how other users can download and execute image locally on their computer.    
-
-If your project/algorithm is like any usual program i.e. gets input data, process it and produce results (as shown in the directory tree below) then you can use scikit-surgerydocker to containerize it for easy sharing and research reproducibility.
+Scikit-surgerydocker is a template project that containerize (create docker image) Python project/algorithm. It specify the steps of how to share the project image with the world freely. It further explains how other users can download and execute image locally on their computer.   
 
 ![Animation of framework](.docs/source/img/Reproducible_framework.gif)
 
+
+If your project/algorithm is like any usual program i.e. gets input data, process it and produce results (as shown in the directory tree below) then you can use scikit-surgerydocker to containerize it for easy sharing and research reproducibility.
 
 ```
 .
