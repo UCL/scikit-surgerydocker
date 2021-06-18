@@ -6,7 +6,7 @@ Scikit-surgerydocker is a template project that containerize (create docker imag
 
 If your project/algorithm is like any usual program i.e. gets input data, process it and produce results (as shown in the directory tree below) then you can use scikit-surgerydocker to containerize it for easy sharing and research reproducibility.
 
-![Animation of framework](.docs/source/img/Reproducible_framework_small.gif)
+![Animation of framework](.docs/source/img/Reproducible_framework.gif)
 
 
 ```
